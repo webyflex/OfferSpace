@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OfferSpace.DAL.Interfaces
+namespace OfferSpace.BL.Interfaces
 {
-    public interface IRequestCustomerDiscusionRepository : IGenericRepository<RequestCustomerDiscusion, long>
+    public interface IRequestCustomerRepository : IRepository<RequestCustomer, long>
     {
     }
 }

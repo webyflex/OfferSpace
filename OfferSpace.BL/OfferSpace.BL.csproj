@@ -93,8 +93,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\IGenericRepository.cs" />
+    <Compile Include="Core\IRepository.cs" />
     <Compile Include="Core\IUnitOfWork.cs" />
+    <Compile Include="Interfaces\ICatalogRepository.cs" />
+    <Compile Include="Interfaces\ICustomerRepository.cs" />
+    <Compile Include="Interfaces\IExecutorRepository.cs" />
+    <Compile Include="Interfaces\ILocationRepository.cs" />
+    <Compile Include="Interfaces\IRequestCustomerDiscusionRepository.cs" />
+    <Compile Include="Interfaces\IRequestCustomerRepository.cs" />
+    <Compile Include="Interfaces\IRequestRepository.cs" />
     <Compile Include="Models\Catalog.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Enum\RequestStatus.cs" />

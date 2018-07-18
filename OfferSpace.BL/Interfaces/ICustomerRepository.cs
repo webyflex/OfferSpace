@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OfferSpace.DAL.Interfaces
+namespace OfferSpace.BL.Interfaces
 {
-    public interface ICustomerRepository : IGenericRepository<Customer, string>
+    public interface ICustomerRepository : IRepository<Customer, string>
     {
         //void Add(Customer entity);
         //Customer Find(int id);

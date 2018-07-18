@@ -11,33 +11,29 @@ using System.Threading.Tasks;
 
 namespace OfferSpace.DAL.Repositories
 {
-    public class GenericRepository<TEntity, TKey> : IGenericRepository<TEntity, TKey> where TEntity : class, IEntity<TKey>
+    public class Repository<TEntity, TKey> : IRepository<TEntity, TKey> where TEntity : class, IEntity<TKey>
     {
         public readonly IUnitOfWork /*UnitOfWork*/ _unitOfWork;
         protected DbSet<TEntity> _dbSet;
 
-        public GenericRepository(IUnitOfWork /*UnitOfWork*/ unitOfWork)
+        public Repository(IUnitOfWork /*UnitOfWork*/ unitOfWork)
         {
             _unitOfWork = unitOfWork;
-            _dbSet = _unitOfWork.Context.Set<TEntity>();
         }
 
         public void Create(TEntity entity)
         {
             _dbSet.AddOrUpdate(entity);
-            _unitOfWork.Commit();
         }
 
         public void Delete(TKey id)
         {
-            _dbSet.Remove(_dbSet.Find(id) ?? throw new InvalidOperationException());
-            _unitOfWork.Commit();
+            _dbSet.Remove(_dbSet.Find(id));
         }
 
         public void Delete(TEntity entity)
         {
             _dbSet.Remove(entity);
-            _unitOfWork.Commit();
         }
 
         public TEntity GetById(TKey id)
@@ -53,19 +49,9 @@ namespace OfferSpace.DAL.Repositories
         public void Update(TEntity entity)
         {
             _dbSet.AddOrUpdate(entity);
-            _unitOfWork.Commit();
         }
-
-        public void MarkAsDeleted(TKey id)
+        public void SaveChanges()
         {
-            TEntity entity = _dbSet.Find(id);
-            entity.MarkAsDeleted = true;
-            _unitOfWork.Commit();
-        }
-
-        public void MarkAsDeleted(TEntity entity)
-        {
-            entity.MarkAsDeleted = true;
             _unitOfWork.Commit();
         }
     }

@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OfferSpace.DAL.Interfaces
+namespace OfferSpace.BL.Interfaces
 {
-    public interface IRequestRepository : IGenericRepository<Request, long>
+    public interface IRequestRepository : IRepository<Request, long>
     {
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using OfferSpace.BL.Interfaces;
+using OfferSpace.BL.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,8 +10,22 @@ namespace OfferSpace.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        
+        public ILocationRepository locationRepository;
+        public HomeController(ILocationRepository loc)
         {
+            locationRepository = loc;
+        }
+        public ActionResult Index()
+
+        {
+            Location loc = new Location() { Name="Cv"};
+            Location loc1 = new Location() { Name = "Lv" };
+            Location loc2 = new Location() { Name = "Kyiv" };
+            locationRepository.Create(loc);
+            locationRepository.Create(loc1);
+            locationRepository.Create(loc2);
+            locationRepository.SaveChanges();
             return View();
         }
 

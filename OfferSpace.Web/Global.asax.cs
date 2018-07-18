@@ -1,7 +1,9 @@
 ﻿using Ninject;
+using Ninject.Web.Mvc;
+using OfferSpace.App_Data;
 using OfferSpace.BL.Core;
+using OfferSpace.BL.Interfaces;
 using OfferSpace.DAL.Core;
-using OfferSpace.DAL.Interfaces;
 using OfferSpace.DAL.Repositories;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -17,11 +19,16 @@ namespace OfferSpace.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            var ninjectKernel = new StandardKernel();
+
+            ConfigureDependencies(ninjectKernel);
+
+            DependencyResolver.SetResolver(new NinjectDependencyResolver(ninjectKernel));
         }
 
         private void ConfigureDependencies(StandardKernel ninjectKernel)
         {
-            ninjectKernel.Bind<IUnitOfWork>().To<UnitOfWork>().WithConstructorArgument(@"Data Source=USER-PC\SQLEXPRESS;Initial Catalog=Y=Try;Integrated Security=True");
+            ninjectKernel.Bind<IUnitOfWork>().To<UnitOfWork>().WithConstructorArgument(FilePaths.connectionString);
 
             ninjectKernel.Bind<ICustomerRepository>().To<CustomerRepository>();
             ninjectKernel.Bind<IExecutorRepository>().To<ExecutorRepository>();

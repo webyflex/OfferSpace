@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OfferSpace.DAL.Context
+namespace OfferSpace.DAL.Core
 {
     public class OfferSpaceContext : IdentityDbContext<User>
     {

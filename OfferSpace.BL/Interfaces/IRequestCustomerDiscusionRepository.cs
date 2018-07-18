@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OfferSpace.DAL.Interfaces
+namespace OfferSpace.BL.Interfaces
 {
-    public interface ILocationRepository : IGenericRepository<Location, long>
+    public interface IRequestCustomerDiscusionRepository : IRepository<RequestCustomerDiscusion, long>
     {
     }
 }

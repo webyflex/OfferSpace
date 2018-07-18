@@ -10,6 +10,5 @@ namespace OfferSpace.BL.Models
     {
         T Id { get; set; }
 
-        bool MarkAsDeleted { get; set; }
     }
 }

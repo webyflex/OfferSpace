@@ -7,7 +7,7 @@ using OfferSpace.BL.Models;
 
 namespace OfferSpace.BL.Core
 {
-    public interface IGenericRepository<TEntity, in TKey> where TEntity : class, IEntity<TKey>
+    public interface IRepository<TEntity, in TKey> where TEntity : class, IEntity<TKey>
     {
         void Create(TEntity entity);
         TEntity GetById(TKey id);
@@ -16,8 +16,6 @@ namespace OfferSpace.BL.Core
 
         void Delete(TKey id);
         void Delete(TEntity entity);
-
-        void MarkAsDeleted(TKey id);
-        void MarkAsDeleted(TEntity entity);
+        void SaveChanges();
     }
 }
