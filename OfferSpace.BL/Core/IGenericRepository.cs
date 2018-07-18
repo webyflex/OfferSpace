@@ -1,13 +1,13 @@
-﻿using OfferSpace.BL.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OfferSpace.BL.Models;
 
-namespace OfferSpace.BL.Repositories
+namespace OfferSpace.BL.Core
 {
-    public interface IGenericRepository<TEntity, /*in*/ TKey> where TEntity : class, IEntity<TKey>
+    public interface IGenericRepository<TEntity, in TKey> where TEntity : class, IEntity<TKey>
     {
         void Create(TEntity entity);
         TEntity GetById(TKey id);

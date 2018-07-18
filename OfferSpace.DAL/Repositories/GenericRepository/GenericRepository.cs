@@ -1,6 +1,5 @@
 ﻿using OfferSpace.BL.Core;
 using OfferSpace.BL.Models;
-using OfferSpace.BL.Repositories;
 using OfferSpace.DAL.Core;
 using System;
 using System.Collections.Generic;
