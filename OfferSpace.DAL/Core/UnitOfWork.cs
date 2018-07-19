@@ -15,14 +15,14 @@ namespace OfferSpace.DAL.Core
         {
             Context = dbContext;
         }
-        public void BeginTransaction()
-        {
-            Context.Database.BeginTransaction();
-        }
-        public void Rollback()
-        {
-            Context.Database.CurrentTransaction.Rollback();
-        }
+        //public void BeginTransaction()
+        //{
+        //    Context.Database.BeginTransaction();
+        //}
+        //public void Rollback()
+        //{
+        //    Context.Database.CurrentTransaction.Rollback();
+        //}
 
         public void Commit()
         {

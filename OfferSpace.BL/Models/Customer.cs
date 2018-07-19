@@ -16,14 +16,14 @@ namespace OfferSpace.BL.Models
 
         public string Image { get; set; }
 
-        public ICollection<Request> Requests { get; set; }
+        //public ICollection<Request> Requests { get; set; }
 
         public bool MarkAsDeleted { get; set; }
 
-        public Customer()
-        {
-            Requests = new List<Request>();
-        }
+        //public Customer()
+        //{
+        //    Requests = new List<Request>();
+        //}
 
     }
 }

@@ -19,14 +19,14 @@ namespace OfferSpace.BL.Models
 
         public bool MarkAsDeleted { get; set; }
 
-        public ICollection<Catalog> Catalogs { get; set; }
+        //public ICollection<Catalog> Catalogs { get; set; }
 
-        public ICollection<RequestCustomer> RequestCustomers { get; set; }
+        //public ICollection<RequestCustomer> RequestCustomers { get; set; }
 
-        public Executor()
-        {
-            Catalogs = new List<Catalog>();
-            RequestCustomers = new List<RequestCustomer>();
-        }
+        //public Executor()
+        //{
+        //    Catalogs = new List<Catalog>();
+        //    RequestCustomers = new List<RequestCustomer>();
+        //}
     }
 }

@@ -25,7 +25,12 @@ namespace OfferSpace.BL.Models
         public bool MarkAsDeleted { get; set; }
 
         //[ForeignKey("RequestCustomerDiscusion")]
-        public long? RequestCustomerDiscusionId { get; set; }
-        public RequestCustomerDiscusion RequestCustomerDiscusion { get; set; }
+        public ICollection<RequestCustomerDiscusion> RequestCustomerDiscusions { get; set; }
+        //public RequestCustomerDiscusion RequestCustomerDiscusion { get; set; }
+
+        public RequestCustomer()
+        {
+            RequestCustomerDiscusions = new List<RequestCustomerDiscusion>();
+        }
     }
 }
