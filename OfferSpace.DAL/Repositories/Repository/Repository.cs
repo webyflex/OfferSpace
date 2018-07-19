@@ -19,6 +19,7 @@ namespace OfferSpace.DAL.Repositories
         public Repository(IUnitOfWork /*UnitOfWork*/ unitOfWork)
         {
             _unitOfWork = unitOfWork;
+            _dbSet = _unitOfWork.Context.Set<TEntity>();
         }
 
         public void Create(TEntity entity)

@@ -1,10 +1,16 @@
-﻿using Ninject;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.Owin.Security;
+using Ninject;
+using Ninject.Web.Common;
 using Ninject.Web.Mvc;
 using OfferSpace.App_Data;
 using OfferSpace.BL.Core;
 using OfferSpace.BL.Interfaces;
+using OfferSpace.BL.Models;
 using OfferSpace.DAL.Core;
 using OfferSpace.DAL.Repositories;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -29,9 +35,8 @@ namespace OfferSpace.Web
         private void ConfigureDependencies(StandardKernel ninjectKernel)
         {
             ninjectKernel.Bind<IUnitOfWork>().To<UnitOfWork>().WithConstructorArgument(FilePaths.connectionString);
-
             ninjectKernel.Bind<ICustomerRepository>().To<CustomerRepository>();
-            ninjectKernel.Bind<IExecutorRepository>().To<ExecutorRepository>();
+            ninjectKernel.Bind<ICompanyRepository>().To<CompanyRepository>();
             ninjectKernel.Bind<ILocationRepository>().To<LocationRepository>();
             ninjectKernel.Bind<ICatalogRepository>().To<CatalogRepository>();
             ninjectKernel.Bind<IRequestRepository>().To<RequestRepository>();

@@ -1,5 +1,6 @@
-﻿using OfferSpace.BL.Models;
+﻿
 using OfferSpace.BL.Core;
+using OfferSpace.BL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

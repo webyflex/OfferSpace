@@ -1,5 +1,5 @@
-﻿using OfferSpace.BL.Models;
-using OfferSpace.BL.Core;
+﻿using OfferSpace.BL.Core;
+using OfferSpace.BL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OfferSpace.BL.Interfaces
 {
-    public interface IExecutorRepository : IRepository<Executor, string>
+    public interface ICompanyRepository : IRepository<Company, long>
     {
     }
 }

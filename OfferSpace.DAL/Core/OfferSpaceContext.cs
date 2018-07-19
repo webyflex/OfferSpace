@@ -23,7 +23,6 @@ namespace OfferSpace.DAL.Core
         }
 
         public DbSet<Customer> Customers { get; set; }
-        public DbSet<Executor> Executors { get; set; }
         public DbSet<Request> Requests { get; set; }
         public DbSet<RequestCustomer> RequestCustomers { get; set; }
         public DbSet<RequestCustomerDiscusion> RequestCustomerDiscusions { get; set; }
@@ -40,17 +39,6 @@ namespace OfferSpace.DAL.Core
                                    .Ignore(c => c.LockoutEndDateUtc)
                                    .Ignore(c => c.TwoFactorEnabled);
 
-            modelBuilder.Entity<Customer>().Map(m =>
-            {
-                m.MapInheritedProperties();
-                m.ToTable("Customers");
-            });
-
-            modelBuilder.Entity<Executor>().Map(m =>
-            {
-                m.MapInheritedProperties();
-                m.ToTable("Executors");
-            });
         }
     }
 }

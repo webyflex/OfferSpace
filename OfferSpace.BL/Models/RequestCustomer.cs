@@ -13,20 +13,19 @@ namespace OfferSpace.BL.Models
         [Key]
         public long Id { get; set; }
 
-        //[ForeignKey("RequestId")]
         public long? RequestId { get; set; }
         public Request Request { get; set; }
 
-        public long? ExecutorId { get; set; }
-        public Executor Executor { get; set; }
+        public long? CustomerId { get; set; }
+        public Customer Customer { get; set; }
 
         public DateTime ScheduleOn { get; set; }
 
         public bool MarkAsDeleted { get; set; }
 
-        //[ForeignKey("RequestCustomerDiscusion")]
+
         public ICollection<RequestCustomerDiscusion> RequestCustomerDiscusions { get; set; }
-        //public RequestCustomerDiscusion RequestCustomerDiscusion { get; set; }
+
 
         public RequestCustomer()
         {

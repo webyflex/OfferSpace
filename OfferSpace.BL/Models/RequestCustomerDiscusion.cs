@@ -11,7 +11,6 @@ namespace OfferSpace.BL.Models
     public class RequestCustomerDiscusion : IEntity<long>
     {
         [Key]
-        //[ForeignKey("RequestCustomer")]
         public long Id { get; set; }
 
         public long RequestCustomerId { get; set; }

@@ -17,14 +17,11 @@ namespace OfferSpace.Web.Controllers
             locationRepository = loc;
         }
         public ActionResult Index()
-
         {
-            Location loc = new Location() { Name="Cv"};
-            Location loc1 = new Location() { Name = "Lv" };
-            Location loc2 = new Location() { Name = "Kyiv" };
-            locationRepository.Create(loc);
-            locationRepository.Create(loc1);
-            locationRepository.Create(loc2);
+            locationRepository.Create(new Location { Name = "chernivtsi" });
+            locationRepository.Create(new Location { Name = "chernivtsi", ParentId = 1 });
+            locationRepository.Create(new Location { Name = "kyiv" });
+            locationRepository.Create(new Location { Name = "lviv" });
             locationRepository.SaveChanges();
             return View();
         }
