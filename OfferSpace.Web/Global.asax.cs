@@ -35,6 +35,10 @@ namespace OfferSpace.Web
         private void ConfigureDependencies(StandardKernel ninjectKernel)
         {
             ninjectKernel.Bind<IUnitOfWork>().To<UnitOfWork>().WithConstructorArgument(FilePaths.connectionString);
+
+            ninjectKernel.Bind<IUserStore<User>>().To<UserStore<User>>();
+            ninjectKernel.Bind<IAuthenticationManager>().ToMethod(c => HttpContext.Current.GetOwinContext().Authentication).InRequestScope();
+
             ninjectKernel.Bind<ICustomerRepository>().To<CustomerRepository>();
             ninjectKernel.Bind<ICompanyRepository>().To<CompanyRepository>();
             ninjectKernel.Bind<ILocationRepository>().To<LocationRepository>();

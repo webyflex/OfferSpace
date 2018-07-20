@@ -18,11 +18,11 @@ namespace OfferSpace.Web.Controllers
         }
         public ActionResult Index()
         {
-            locationRepository.Create(new Location { Name = "chernivtsi" });
-            locationRepository.Create(new Location { Name = "chernivtsi", ParentId = 1 });
-            locationRepository.Create(new Location { Name = "kyiv" });
-            locationRepository.Create(new Location { Name = "lviv" });
-            locationRepository.SaveChanges();
+            //locationRepository.Create(new Location { Name = "chernivtsi" });
+            //locationRepository.Create(new Location { Name = "chernivtsi", ParentId = 1 });
+            //locationRepository.Create(new Location { Name = "kyiv" });
+            //locationRepository.Create(new Location { Name = "lviv" });
+            //locationRepository.SaveChanges();
             return View();
         }
 
@@ -30,6 +30,11 @@ namespace OfferSpace.Web.Controllers
         {
             ViewBag.Message = "Your application description page.";
 
+            //locationRepository.Create(new Location { Name = "chernivtsi" });
+            //locationRepository.Create(new Location { Name = "chernivtsi", ParentId = 1 });
+            //locationRepository.Create(new Location { Name = "kyiv" });
+            //locationRepository.Create(new Location { Name = "lviv" });
+            //locationRepository.SaveChanges();
             return View();
         }
 

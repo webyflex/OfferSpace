@@ -11,6 +11,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using OfferSpace.BL.Models;
 using OfferSpace.DAL.Core;
+using OfferSpace.BL.Core;
+using OfferSpace.App_Data;
 
 namespace OfferSpace.Web.Models
 {

@@ -22,23 +22,23 @@ namespace OfferSpace.DAL.Core
             return new OfferSpaceContext();
         }
 
-        public DbSet<Customer> Customers { get; set; }
+        public DbSet<UserProfile> Customers { get; set; }
         public DbSet<Request> Requests { get; set; }
         public DbSet<RequestCustomer> RequestCustomers { get; set; }
         public DbSet<RequestCustomerDiscusion> RequestCustomerDiscusions { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<Catalog> Catalogs { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    base.OnModelCreating(modelBuilder);
+        //    modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
-            modelBuilder.Entity<User>().Ignore(c => c.AccessFailedCount)
-                                   .Ignore(c => c.LockoutEnabled)
-                                   .Ignore(c => c.LockoutEndDateUtc)
-                                   .Ignore(c => c.TwoFactorEnabled);
+        //    modelBuilder.Entity<User>().Ignore(c => c.AccessFailedCount)
+        //                           .Ignore(c => c.LockoutEnabled)
+        //                           .Ignore(c => c.LockoutEndDateUtc)
+        //                           .Ignore(c => c.TwoFactorEnabled);
 
-        }
+        //}
     }
 }

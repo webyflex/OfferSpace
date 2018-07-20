@@ -25,7 +25,7 @@ namespace OfferSpace.BL.Models
         public string Description { get; set; }
 
         public long? CustomerId { get; set; }
-        public Customer Customer { get; set; }
+        public UserProfile Customer { get; set; }
 
         public DateTime ScheduleFrom { get; set; }
 
