@@ -15,7 +15,6 @@ namespace OfferSpace.BL.Models
         public string UserId { get; set; }
         public long? CompanyId { get; set; }
         public Company Company { get; set; }
-        //public User User { get; set; }
         public string FirstName { get; set; }
 
         public string LastName { get; set; }

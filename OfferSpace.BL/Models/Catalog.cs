@@ -18,18 +18,11 @@ namespace OfferSpace.BL.Models
         public Catalog Parent { get; set; }
 
         public ICollection<Catalog> Childrens { get; set; }
-
-        //public ICollection<Executor> Executors { get; set; }
-
-        //public ICollection<Request> Requests { get; set; }
-
-        //public bool MarkAsDeleted { get; set; }
+        
 
         public Catalog()
         {
-            //Executors = new List<Executor>();
             Childrens = new List<Catalog>();
-            //Requests = new List<Request>();
         }
     }
 }

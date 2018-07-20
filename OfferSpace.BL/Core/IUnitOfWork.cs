@@ -9,9 +9,7 @@ namespace OfferSpace.BL.Core
 {
     public interface IUnitOfWork
     {
-        DbContext Context { get; set; }
-        //void BeginTransaction();
-        //void Rollback();
+        DbContext Context { get; }
         void Commit();
     }
 }

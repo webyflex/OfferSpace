@@ -10,19 +10,11 @@ namespace OfferSpace.DAL.Core
 {
     public class UnitOfWork : IUnitOfWork
     {
-        public DbContext Context { get; set; }
+        public DbContext Context { get;}
         public UnitOfWork(OfferSpaceContext dbContext)
         {
             Context = dbContext;
         }
-        //public void BeginTransaction()
-        //{
-        //    Context.Database.BeginTransaction();
-        //}
-        //public void Rollback()
-        //{
-        //    Context.Database.CurrentTransaction.Rollback();
-        //}
 
         public void Commit()
         {
