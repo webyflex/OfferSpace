@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
-  <Import Project="..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.8.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.8.2\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -60,6 +60,9 @@
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.2\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Owin, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -185,9 +188,6 @@
     <Reference Include="Microsoft.AI.Web">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.5.1\lib\net45\Microsoft.AI.Web.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Data\FilePaths.cs" />
@@ -196,6 +196,17 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
+    <Content Include="Content\LandingStyles\animate.css" />
+    <Content Include="Content\LandingStyles\bootstrap.css" />
+    <Content Include="Content\LandingStyles\.DS_Store" />
+    <None Include="Content\LandingStyles\bootstrap.css.map" />
+    <Content Include="Content\LandingStyles\flaticon.css" />
+    <Content Include="Content\LandingStyles\flaticon.html" />
+    <Content Include="Content\LandingStyles\flaticon.svg" />
+    <Content Include="Content\LandingStyles\flexslider.css" />
+    <Content Include="Content\LandingStyles\icomoon.css" />
+    <Content Include="Content\LandingStyles\icomoon.svg" />
+    <Content Include="Content\LandingStyles\magnific-popup.css" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -207,12 +218,64 @@
     <Compile Include="Models\ConfirmCompanyRegistrationModel.cs" />
     <Compile Include="Models\RegisterCompanyModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Content\LandingStyles\style.css.map" />
+    <Content Include="Images\blog-1.jpg" />
+    <Content Include="Images\blog-2.jpg" />
+    <Content Include="Images\blog-3.jpg" />
+    <Content Include="Images\blog-4.jpg" />
+    <Content Include="Images\blog-5.jpg" />
+    <Content Include="Images\blog-6.jpg" />
+    <Content Include="Images\cover_img_1.jpg" />
+    <Content Include="Images\cover_img_2.jpg" />
+    <Content Include="Images\img_bg_1.jpg" />
+    <Content Include="Images\img_bg_2.jpg" />
+    <Content Include="Images\img_bg_3.jpg" />
+    <Content Include="Images\img_bg_4.jpg" />
+    <Content Include="Images\loader.gif" />
+    <Content Include="Images\loc.png" />
+    <Content Include="Images\person1.jpg" />
+    <Content Include="Images\person2.jpg" />
+    <Content Include="Images\person3.jpg" />
+    <Content Include="Images\person4.jpg" />
+    <Content Include="Images\work-1.jpg" />
+    <Content Include="Images\work-2.jpg" />
+    <Content Include="Images\work-3.jpg" />
+    <Content Include="Images\work-4.jpg" />
+    <Content Include="Images\work-5.jpg" />
+    <Content Include="Images\work-6.jpg" />
+    <Content Include="Images\work-7.jpg" />
+    <Content Include="Images\work-8.jpg" />
+    <Content Include="Images\work-9.jpg" />
+    <Content Include="Scripts\LandingScripts\bootstrap.min.js" />
+    <Content Include="Scripts\LandingScripts\jquery.countTo.js" />
+    <Content Include="Scripts\LandingScripts\jquery.easing.1.3.js" />
+    <Content Include="Scripts\LandingScripts\jquery.flexslider-min.js" />
+    <Content Include="Scripts\LandingScripts\jquery.min.js" />
+    <Content Include="Scripts\LandingScripts\jquery.stellar.min.js" />
+    <Content Include="Scripts\LandingScripts\jquery.waypoints.min.js" />
+    <Content Include="Scripts\LandingScripts\magnific-popup-options.js" />
+    <Content Include="Scripts\LandingScripts\main.js" />
+    <Content Include="Scripts\LandingScripts\owl.carousel.min.js" />
+    <Content Include="Scripts\LandingScripts\query.magnific-popup.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.min.js" />
+    <Content Include="Images\.DS_Store" />
+    <Content Include="Content\LandingStyles\_flaticon.scss" />
+    <Content Include="Content\LandingStyles\flaticon.eot" />
+    <Content Include="Content\LandingStyles\icomoon.eot" />
+    <Content Include="Content\LandingStyles\icomoon.ttf" />
+    <Content Include="Content\LandingStyles\icomoon.woff" />
+    <Content Include="Content\LandingStyles\Flaticon.ttf" />
+    <Content Include="Content\LandingStyles\Flaticon.woff" />
+    <None Include="Views\Shared\_LandingPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\LandingStyles\owl.carousel.min.css" />
+    <Content Include="Content\LandingStyles\owl.theme.default.min.css" />
+    <Content Include="Content\LandingStyles\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -265,7 +328,9 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
@@ -311,8 +376,8 @@
     <PropertyGroup>
       <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.8.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.8.2\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
