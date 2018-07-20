@@ -2,3 +2,5 @@
 *.nupkg
 *.dll
 *.pdb
+[Bb]in/
+[Oo]bj/
