@@ -4,7 +4,6 @@ using Microsoft.Owin.Security;
 using Ninject;
 using Ninject.Web.Common;
 using Ninject.Web.Mvc;
-using OfferSpace.App_Data;
 using OfferSpace.BL.Core;
 using OfferSpace.BL.Interfaces;
 using OfferSpace.BL.Models;
@@ -14,6 +13,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using OfferSpace.Web.App_Data;
 
 namespace OfferSpace.Web
 {
@@ -34,7 +34,7 @@ namespace OfferSpace.Web
 
         private void ConfigureDependencies(StandardKernel ninjectKernel)
         {
-            ninjectKernel.Bind<IUnitOfWork>().To<UnitOfWork>().WithConstructorArgument(FilePaths.connectionString);
+            ninjectKernel.Bind<IUnitOfWork>().To<UnitOfWork>().WithConstructorArgument(FilePaths.ConnectionString);
             ninjectKernel.Bind<ICustomerRepository>().To<CustomerRepository>();
             ninjectKernel.Bind<ICompanyRepository>().To<CompanyRepository>();
             ninjectKernel.Bind<ILocationRepository>().To<LocationRepository>();
