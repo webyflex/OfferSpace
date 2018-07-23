@@ -233,6 +233,8 @@
     <Content Include="Images\img_bg_4.jpg" />
     <Content Include="Images\loader.gif" />
     <Content Include="Images\loc.png" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\offer-space-icon.ico" />
     <Content Include="Images\person1.jpg" />
     <Content Include="Images\person2.jpg" />
     <Content Include="Images\person3.jpg" />

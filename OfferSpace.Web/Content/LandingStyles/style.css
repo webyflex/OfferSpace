@@ -136,6 +136,10 @@ h1, h2, h3, h4, h5, h6, figure {
     font-weight: 700;
 }
 
+.site-logo {
+    max-width: 50%;
+}
+
     .colorlib-nav #colorlib-logo a {
         position: relative;
         color: #fff;
