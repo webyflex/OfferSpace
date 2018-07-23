@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OfferSpace.BL.Models;
+﻿using System.Collections.Generic;
 
 namespace OfferSpace.BL.Core
 {
@@ -13,7 +8,6 @@ namespace OfferSpace.BL.Core
         TEntity GetById(TKey id);
         IEnumerable<TEntity> GetAll();
         void Update(TEntity entity);
-
         void Delete(TKey id);
         void Delete(TEntity entity);
         void SaveChanges();

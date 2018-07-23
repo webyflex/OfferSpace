@@ -1,10 +1,7 @@
-﻿using System;
+﻿using OfferSpace.BL.Core;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OfferSpace.BL.Models
 {
@@ -12,20 +9,13 @@ namespace OfferSpace.BL.Models
     {
         [Key]
         public long Id { get; set; }
-
         public long? RequestId { get; set; }
         public Request Request { get; set; }
-
         public long? CustomerId { get; set; }
         public Customer Customer { get; set; }
-
         public DateTime ScheduleOn { get; set; }
-
         public bool MarkAsDeleted { get; set; }
-
-
         public ICollection<RequestCustomerDiscusion> RequestCustomerDiscusions { get; set; }
-
 
         public RequestCustomer()
         {

@@ -1,22 +1,17 @@
 ﻿using OfferSpace.BL.Core;
 using OfferSpace.BL.Models;
-using OfferSpace.DAL.Core;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace OfferSpace.DAL.Repositories
+namespace OfferSpace.DAL.Core
 {
     public class Repository<TEntity, TKey> : IRepository<TEntity, TKey> where TEntity : class, IEntity<TKey>
     {
-        public readonly IUnitOfWork /*UnitOfWork*/ _unitOfWork;
+        public readonly UnitOfWork _unitOfWork;
         protected DbSet<TEntity> _dbSet;
 
-        public Repository(IUnitOfWork /*UnitOfWork*/ unitOfWork)
+        public Repository(UnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
             _dbSet = _unitOfWork.Context.Set<TEntity>();

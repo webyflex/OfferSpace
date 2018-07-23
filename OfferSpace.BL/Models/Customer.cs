@@ -1,10 +1,5 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
-using System;
-using System.Collections.Generic;
+﻿using OfferSpace.BL.Core;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OfferSpace.BL.Models
 {
@@ -22,7 +17,5 @@ namespace OfferSpace.BL.Models
         public string Image { get; set; }
 
         public bool MarkAsDeleted { get; set; }
-
-
     }
 }

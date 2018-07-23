@@ -1,17 +1,12 @@
 ﻿using OfferSpace.BL.Models;
 using OfferSpace.DAL.Core;
 using OfferSpace.BL.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OfferSpace.DAL.Repositories
 {
     public class LocationRepository : Repository<Location, long>, ILocationRepository
     {
-        public LocationRepository(/*IUnitOfWork*/ UnitOfWork uow) : base(uow)
+        public LocationRepository(UnitOfWork uow) : base(uow)
         {
         }
     }
