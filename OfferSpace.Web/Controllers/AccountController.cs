@@ -13,6 +13,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using OfferSpace.BL.Interfaces;
 using OfferSpace.DAL.Repositories;
+using System.Web.Security;
 
 namespace OfferSpace.Web.Controllers
 {
@@ -20,7 +21,7 @@ namespace OfferSpace.Web.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        private ICustomerRepository _customerRepository;
+        ICustomerRepository _customerRepository;
 
         public ApplicationSignInManager SignInManager
         {
@@ -53,16 +54,19 @@ namespace OfferSpace.Web.Controllers
             }
         }
 
-        public AccountController() { }
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, ICustomerRepository custrep)
+        //public AccountController() { }
+        /*public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
-            _customerRepository = custrep;
             UserManager = userManager;
             SignInManager = signInManager;
+        }*/
+        public AccountController(ICustomerRepository customerRepository)
+        {
+            _customerRepository = customerRepository;
         }
 
 
-        public ActionResult Register()
+        public ActionResult RegisterCustomer()
         {
             return View();
         }
@@ -70,17 +74,50 @@ namespace OfferSpace.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterCompanyModel model)
+        public async Task<ActionResult> RegisterCustomer(RegisterModel model)
         {
             if (ModelState.IsValid)
             {
-                var customer = new Customer();
-                var user = new User() { Email = model.Email, UserName = model.Email, Customer = customer};
+                var user = new User() { Email = model.Email, UserName = model.Email/*, UserProfile = new UserProfile()*/};
                 IdentityResult result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    customer.UserId = user.Id;
-                    customer.MarkAsDeleted = false;
+                    await UserManager.AddToRoleAsync(user.Id, "customer");
+                    var provider = new Microsoft.Owin.Security.DataProtection.DpapiDataProtectionProvider("OfferSpace.Web");
+                    UserManager.UserTokenProvider = new DataProtectorTokenProvider<User>(provider.Create("EmailConfirmation"));
+                    var token = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+
+                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = token },
+                        protocol: Request.Url.Scheme);
+
+                    await UserManager.SendEmailAsync(user.Id, "Подтверждение электронной почты",
+                        "Для завершения регистрации перейдите по ссылке:: <a href=\""
+                        + callbackUrl + "\">завершить регистрацию</a>");
+
+                    return View("DisplayEmail");
+                }
+                AddErrors(result);
+            }
+            return View(model);
+        }
+        public ActionResult RegisterCompany()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> RegisterCompany(RegisterModel model)
+        {
+            if (ModelState.IsValid)
+            {
+
+                var user = new User() { Email = model.Email, UserName = model.Email };
+                IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    await UserManager.AddToRoleAsync(user.Id, "owner");
                     var provider = new Microsoft.Owin.Security.DataProtection.DpapiDataProtectionProvider("OfferSpace.Web");
                     UserManager.UserTokenProvider = new DataProtectorTokenProvider<User>(provider.Create("EmailConfirmation"));
                     var token = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -106,6 +143,8 @@ namespace OfferSpace.Web.Controllers
             {
                 return View("Error");
             }
+            //var emailConfirmationCode = await UserManager.GenerateEmailConfirmationTokenAsync(userId);
+            //var res = UserManager.ConfirmEmailAsync(userId, emailConfirmationCode);
             var provider = new Microsoft.Owin.Security.DataProtection.DpapiDataProtectionProvider("OfferSpace.Web");
             UserManager.UserTokenProvider = new DataProtectorTokenProvider<User>(provider.Create("EmailConfirmation"));
             var result = await UserManager.ConfirmEmailAsync(userId, code);
@@ -119,7 +158,6 @@ namespace OfferSpace.Web.Controllers
         }
         
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(CompanyLoginModel model, string returnUrlSite)
         {
@@ -135,6 +173,11 @@ namespace OfferSpace.Web.Controllers
                 if (user.EmailConfirmed == true)
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    var customer = _customerRepository.GetAll().FirstOrDefault(custUser => custUser.UserId == user.Id);
+                    if (customer == null)
+                    {
+                        return RedirectToAction("Create", "UserProfile");
+                    }         
                     return Redirect(returnUrl);
                 }
                 else

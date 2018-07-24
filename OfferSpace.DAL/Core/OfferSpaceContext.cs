@@ -22,7 +22,7 @@ namespace OfferSpace.DAL.Core
             return new OfferSpaceContext();
         }
 
-        public DbSet<Customer> Customers { get; set; }
+        public DbSet<UserProfile> Customers { get; set; }
         public DbSet<Request> Requests { get; set; }
         public DbSet<RequestCustomer> RequestCustomers { get; set; }
         public DbSet<RequestCustomerDiscusion> RequestCustomerDiscusions { get; set; }
@@ -40,5 +40,7 @@ namespace OfferSpace.DAL.Core
                                    .Ignore(c => c.TwoFactorEnabled);
 
         }
+
+        public System.Data.Entity.DbSet<OfferSpace.BL.Models.Company> Companies { get; set; }
     }
 }

@@ -6,10 +6,8 @@ using System.Web;
 
 namespace OfferSpace.Web.Models
 {
-    public class RegisterCompanyModel
+    public class RegisterModel
     {
-        [Required]
-        public string Name { get; set; }
         [Required]
         public string Email { get; set; }
 

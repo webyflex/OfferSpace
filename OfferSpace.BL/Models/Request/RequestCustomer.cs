@@ -12,7 +12,7 @@ namespace OfferSpace.BL.Models
         public long? RequestId { get; set; }
         public Request Request { get; set; }
         public long? CustomerId { get; set; }
-        public Customer Customer { get; set; }
+        public UserProfile Customer { get; set; }
         public DateTime ScheduleOn { get; set; }
         public bool MarkAsDeleted { get; set; }
         public ICollection<RequestCustomerDiscusion> RequestCustomerDiscusions { get; set; }
