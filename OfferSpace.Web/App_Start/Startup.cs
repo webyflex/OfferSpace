@@ -18,8 +18,8 @@ namespace OfferSpace.Web.App_Start
         {
 
             app.CreatePerOwinContext<OfferSpaceContext>(OfferSpaceContext.Create);
-
-            app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
+            app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create, ApplicationUserManager.Destroy);
+            //app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {

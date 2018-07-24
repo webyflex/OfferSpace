@@ -12,19 +12,22 @@ using OfferSpace.BL.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using OfferSpace.BL.Interfaces;
+using System.Net;
 
 namespace OfferSpace.Web.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
+        ICustomerRepository customerRepository;
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        public AccountController() { }
+        //public AccountController() { }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, ICustomerRepository cust)
         {
             UserManager = userManager;
             SignInManager = signInManager;
+            customerRepository = cust;
         }
 
         public ApplicationSignInManager SignInManager
@@ -59,14 +62,19 @@ namespace OfferSpace.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterCompanyModel model)
+        public async Task<ActionResult> Register(RegistertrationModel model)
         {
             if (ModelState.IsValid)
             {
-                var user = new User() {Email = model.Email,UserName=model.Name};
-                IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+                var user = new User() {Email = model.Email,UserName=model.Email};
+                var userProfile = new UserProfile() { User=user,MarkAsDeleted=false};
+                customerRepository.Create(userProfile);
+                customerRepository.SaveChanges();
+                //user.CustomerId = userProfile.Id;
+                var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    await UserManager.AddToRoleAsync(user.Id, "customer");
                     var provider = new Microsoft.Owin.Security.DataProtection.DpapiDataProtectionProvider("OfferSpace.Web");
                     UserManager.UserTokenProvider = new DataProtectorTokenProvider<User>(provider.Create("EmailConfirmation"));
                     var token = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -115,11 +123,11 @@ namespace OfferSpace.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(CompanyLoginModel model, string returnUrl)
+        public async Task<ActionResult> Login(LoginModel model, string returnUrl)
         {
             
                 //var user = executorRepository.GetAll().FirstOrDefault(name => name.Email == model.Email);
-                /*var user = await UserManager.FindAsync(model.Email, model.Password);
+                var user = await UserManager.FindAsync(model.Email, model.Password);
                 if (user != null)
                 {
                     if (user.EmailConfirmed == true)
@@ -136,37 +144,8 @@ namespace OfferSpace.Web.Controllers
                 {
                     ModelState.AddModelError("", "Неверный логин или пароль");
                 }
-            }
-            return View(model);*/
-                if (ModelState.IsValid)
-                {
-                    User user = await UserManager.FindAsync(model.Email, model.Password);
-                    if (user == null)
-                    {
-                        ModelState.AddModelError("", "Неверный логин или пароль.");
-                    }
-                    else
-                    {
-                        if (user.EmailConfirmed == true)
-                        {
-                            ClaimsIdentity claim = await UserManager.CreateIdentityAsync(user,
-                                                    DefaultAuthenticationTypes.ApplicationCookie);
-                            AuthenticationManager.SignOut();
-                            AuthenticationManager.SignIn(new AuthenticationProperties
-                            {
-                                IsPersistent = true
-                            }, claim);
-                            if (String.IsNullOrEmpty(returnUrl))
-                                return RedirectToAction("Index", "Home");
-                            return Redirect(returnUrl);
-                        }
-                        else { ModelState.AddModelError("", "Неверный логин или пароль."); }
-                    }
-                    return Redirect(returnUrl);
-                }
-                ViewBag.returnUrl = returnUrl;
-                return Redirect(returnUrl);
-            }
+            return View(model);
+        }
         
         /*public string GetEmailOrUserName(LoginModel model)
         {
@@ -175,6 +154,7 @@ namespace OfferSpace.Web.Controllers
                 var user=db.Users.FirstOrDefault(x=>model.)
             }
         }*/
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Logout()
@@ -182,25 +162,9 @@ namespace OfferSpace.Web.Controllers
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             return RedirectToAction("Login");
         }
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                if (_userManager != null)
-                {
-                    _userManager.Dispose();
-                    _userManager = null;
-                }
 
-                if (_signInManager != null)
-                {
-                    _signInManager.Dispose();
-                    _signInManager = null;
-                }
-            }
+        
 
-            base.Dispose(disposing);
-        }
         private void AddErrors(IdentityResult result)
         {
             foreach (var error in result.Errors)

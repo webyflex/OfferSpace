@@ -12,7 +12,6 @@ namespace OfferSpace.BL.Models
     public class User : IdentityUser
     {
         public long CustomerId { get; set; }
-        public Customer Customer { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);

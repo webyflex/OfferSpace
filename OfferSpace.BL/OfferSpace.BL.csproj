@@ -104,7 +104,7 @@
     <Compile Include="Interfaces\IRequestRepository.cs" />
     <Compile Include="Models\Catalog.cs" />
     <Compile Include="Models\Company.cs" />
-    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\UserProfile.cs" />
     <Compile Include="Models\Enum\RequestStatus.cs" />
     <Compile Include="Models\IEntity.cs" />
     <Compile Include="Models\Location.cs" />

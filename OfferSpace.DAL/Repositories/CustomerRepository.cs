@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace OfferSpace.DAL.Repositories
 {
-    public class CustomerRepository : Repository<Customer, long>, ICustomerRepository
+    public class CustomerRepository : Repository<UserProfile, long>, ICustomerRepository
     {
         public CustomerRepository(/*IUnitOfWork*/ UnitOfWork uow) : base(uow)
         {

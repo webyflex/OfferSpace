@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OfferSpace.BL.Interfaces
 {
-    public interface ICustomerRepository : IRepository<Customer, long>
+    public interface ICustomerRepository : IRepository<UserProfile, long>
     {
         //void Add(Customer entity);
         //Customer Find(int id);
