@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Offer Space</title>
+    <title>OfferSpace</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -28,12 +28,7 @@
 
     @Styles.Render("~/Content/LandingStyles/css")
 
-    <!-- Modernizr JS -->
     @Scripts.Render("~/bundles/modernizr")
-    <!-- FOR IE9 below -->
-    <!--[if lt IE 9]>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->
 
 </head>
 <body>
@@ -48,22 +43,19 @@
                         <div class="col-md-3 text-center">
                             <a class="site-logo" href="index.html"><img width="70%" src="../../Images/logo.png" alt="Homepage"></a>
                         </div>
-                        <div class="col-md-9 text-right menu-1">
+                        <div id="menu" class="col-md-9 text-right menu-1">
                             <ul>
-                                <li class="active"><a href="index.html">Home</a></li>
                                 <li class="has-dropdown">
-                                    <a href="work.html">Work</a>
+                                    <a href="#colorlib-services">How it works</a>
                                     <ul class="dropdown">
-                                        <li><a href="#">Limited Work</a></li>
-                                        <li><a href="#">Accessible Work</a></li>
-                                        <li><a href="#">Original Work</a></li>
+                                        <li><a href="#users">For Users</a></li>
+                                        <li><a href="#executors">For Executors</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="services.html">Services</a></li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="about.html">About</a></li>
+                                <li><a href="#news">News</a></li>
+                                <li><a href="#colorlib-pricing">Pricing</a></li>
                                 <li><a href="contact.html">Contact</a></li>
-                                <li class="btn-cta"><a href="#">Sign Up</a></li>
                                 <li class="btn-cta"><a href="#">Login</a></li>
                             </ul>
                         </div>
@@ -76,9 +68,17 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2 text-center">
                         <div class="intro">
-                            <h1>Landing Created By The Fine Folks</h1>
-                            <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line</p>
-                            <p><a href="#" class="btn btn-primary btn-outline btn-md">Live Preview</a> <a href="#" class="btn btn-primary btn-outline btn-md">Lean more</a></p>
+                            <h1>Welcome to Offer Space</h1>
+                            <p>
+                                Space for realization
+                                your talents or ideas
+                                Find executor
+                                or become him.
+                            </p>
+                            <p>
+                                <a href="#" class="btn btn-primary btn-outline btn-md">Create request</a>
+                                <a href="#" class="btn btn-primary btn-outline btn-md">Process request</a>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -109,11 +109,57 @@
             </div>
         </aside>
 
+
+        @* How it works *@
         <div id="colorlib-services">
-            <div class="container">
+            <div id="users" class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2 text-center colorlib-heading animate-box">
-                        <h2>How It Works</h2>
+                        <h2>How it works for Users</h2>
+                        <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 text-center animate-box">
+                        <div class="services">
+                            <span class="icon">
+                                <i class="icon-lightbulb"></i>
+                            </span>
+                            <div class="desc">
+                                <h3>User Experienced</h3>
+                                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center animate-box">
+                        <div class="services">
+                            <span class="icon">
+                                <i class="icon-tools"></i>
+                            </span>
+                            <div class="desc">
+                                <h3>Virtual Design</h3>
+                                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center animate-box">
+                        <div class="services">
+                            <span class="icon">
+                                <i class="icon-map"></i>
+                            </span>
+                            <div class="desc">
+                                <h3>Design &amp; Research</h3>
+                                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="executors" class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center colorlib-heading animate-box">
+                        <h2>How it works for Executors</h2>
                         <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name</p>
                     </div>
                 </div>
@@ -154,6 +200,8 @@
                 </div>
             </div>
         </div>
+
+        @* Our works *@
         <div id="colorlib-work">
             <div class="container-fluid">
                 <div class="row">
@@ -233,6 +281,7 @@
             </div>
         </div>
 
+        @* Categories *@
         <div id="colorlib-counter" class="colorlib-counters" style="background-image: url(Images/cover_img_1.jpg);" data-stellar-background-ratio="0.5">
             <div class="overlay"></div>
             <div class="container">
@@ -275,9 +324,10 @@
             </div>
         </div>
 
+        @* News *@
         <div class="colorlib-blog">
             <div class="container">
-                <div class="row">
+                <div id="news" class="row">
                     <div class="col-md-8 col-md-offset-2 text-center colorlib-heading animate-box">
                         <h2>Recent Blog</h2>
                         <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name</p>
@@ -386,6 +436,7 @@
             </div>
         </div>
 
+        @* Pricing *@
         <div id="colorlib-pricing">
             <div class="container">
                 <div class="row">
@@ -395,41 +446,42 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-3 text-center animate-box">
+                    <div class="col-md-4 text-center animate-box">
                         <div class="pricing">
-                            <h2 class="pricing-heading">Starter</h2>
-                            <div class="price"><sup class="currency">$</sup>9<small>per month</small></div>
+                            <h2 class="pricing-heading">Free</h2>
+                            <div class="price"><sup class="currency">$</sup>0<small>per life</small></div>
                             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                             <p><a href="#" class="btn btn-primary">Select Plan</a></p>
                         </div>
                     </div>
-                    <div class="col-md-3 text-center animate-box">
+                    <div class="col-md-4 text-center animate-box">
                         <div class="pricing">
-                            <h2 class="pricing-heading">Basic</h2>
-                            <div class="price"><sup class="currency">$</sup>27<small>per month</small></div>
+                            <h2 class="pricing-heading">Monthly</h2>
+                            <div class="price"><sup class="currency">$</sup>20<small>per month</small></div>
                             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                             <p><a href="#" class="btn btn-primary">Select Plan</a></p>
                         </div>
                     </div>
-                    <div class="col-md-3 text-center animate-box">
+                    <div class="col-md-4 text-center animate-box">
                         <div class="pricing">
-                            <h2 class="pricing-heading">Pro</h2>
-                            <div class="price"><sup class="currency">$</sup>74<small>per month</small></div>
+                            <h2 class="pricing-heading">Unlimited</h2>
+                            <div class="price"><sup class="currency">$</sup>200<small>one time</small></div>
                             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                             <p><a href="#" class="btn btn-primary">Select Plan</a></p>
                         </div>
                     </div>
-                    <div class="col-md-3 text-center animate-box">
+                    @*<div class="col-md-3 text-center animate-box">
                         <div class="pricing">
                             <h2 class="pricing-heading">Unlimited</h2>
                             <div class="price"><sup class="currency">$</sup>140<small>per month</small></div>
                             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                             <p><a href="#" class="btn btn-primary">Select Plan</a></p>
                         </div>
-                    </div>
+                    </div>*@
                 </div>
             </div>
         </div>
+
         <footer id="colorlib-footer">
             <div class="newsletter">
                 <div class="container">
@@ -552,5 +604,6 @@
     </div>
 
     @Scripts.Render("~/bundles/LandingScripts/js")
+
 </body>
 </html>
