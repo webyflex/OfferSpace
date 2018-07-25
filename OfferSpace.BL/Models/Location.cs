@@ -1,9 +1,6 @@
-﻿using System;
+﻿using OfferSpace.BL.Core;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OfferSpace.BL.Models
 {
@@ -18,11 +15,9 @@ namespace OfferSpace.BL.Models
 
         public ICollection<Location> Childrens { get; set; }
 
-
         public Location()
         {
             Childrens = new List<Location>();
-
         }
     }
 }
