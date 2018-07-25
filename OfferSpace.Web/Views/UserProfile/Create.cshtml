@@ -1,0 +1,80 @@
+@model OfferSpace.BL.Models.UserProfile
+
+@{
+  ViewBag.Title = "Create";
+}
+<link rel="stylesheet" type="text/css" href="~/Content/stepper.css">
+<h2>View</h2>
+@using (Html.BeginForm())
+{
+  @Html.AntiForgeryToken()
+
+  <div class="form-horizontal">
+    @if (User.IsInRole("owner"))
+    {
+      <div class="stepwizard">
+        <div class="stepwizard-row setup-panel">
+          <div class="stepwizard-step col-xs-5">
+            <div class="btn btn-success btn-circle">1</div>
+            @*<a href="#step-1" type="button" class="btn btn-success btn-circle">1</a>*@
+            <p><small>Account</small></p>
+          </div>
+          <div class="stepwizard-step col-xs-5">
+            @*<a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>*@
+            <div class="btn btn-default btn-circle">2</div>
+            <p><small>Company</small></p>
+          </div>
+        </div>
+      </div>}
+    <h4>UserProfile</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @*<div class="form-group">
+          @Html.LabelFor(model => model.CompanyId, "CompanyId", htmlAttributes: new { @class = "control-label col-md-2" })
+          <div class="col-md-10">
+              @Html.DropDownList("CompanyId", null, htmlAttributes: new { @class = "form-control" })
+              @Html.ValidationMessageFor(model => model.CompanyId, "", new { @class = "text-danger" })
+          </div>
+      </div>*@
+
+    <div class="form-group">
+      @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+      <div class="col-md-10">
+        @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+      </div>
+    </div>
+
+    <div class="form-group">
+      @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+      <div class="col-md-10">
+        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+      </div>
+    </div>
+
+    @*<div class="form-group">
+          @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+          <div class="col-md-10">
+              @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })
+              @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+          </div>
+      </div>*@
+
+    @*<div class="form-group">
+          @Html.LabelFor(model => model.MarkAsDeleted, htmlAttributes: new { @class = "control-label col-md-2" })
+          <div class="col-md-10">
+              <div class="checkbox">
+                  @Html.EditorFor(model => model.MarkAsDeleted)
+                  @Html.ValidationMessageFor(model => model.MarkAsDeleted, "", new { @class = "text-danger" })
+              </div>
+          </div>
+      </div>*@
+
+    <div class="form-group">
+      <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Create" class="btn btn-default" />
+      </div>
+    </div>
+  </div>
+}

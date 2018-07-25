@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,13 +19,7 @@ namespace OfferSpace.Web.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        public AccountController() { }
-
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
-        {
-            UserManager = userManager;
-            SignInManager = signInManager;
-        }
+        ICustomerRepository _customerRepository;
 
         public ApplicationSignInManager SignInManager
         {
@@ -36,7 +30,7 @@ namespace OfferSpace.Web.Controllers
             private set
             {
                 _signInManager = value;
-            }
+            } 
         }
 
         public ApplicationUserManager UserManager
@@ -50,8 +44,27 @@ namespace OfferSpace.Web.Controllers
                 _userManager = value;
             }
         }
+        private IAuthenticationManager AuthenticationManager
+        {
+            get
+            {
+                return HttpContext.GetOwinContext().Authentication;
+            }
+        }
 
-        public ActionResult Register()
+        //public AccountController() { }
+        /*public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
+        {
+            UserManager = userManager;
+            SignInManager = signInManager;
+        }*/
+        public AccountController(ICustomerRepository customerRepository)
+        {
+            _customerRepository = customerRepository;
+        }
+
+
+        public ActionResult RegisterCustomer()
         {
             return View();
         }
@@ -59,51 +72,80 @@ namespace OfferSpace.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterCompanyModel model)
+        public async Task<ActionResult> RegisterCustomer(RegisterModel model)
         {
             if (ModelState.IsValid)
             {
-                var user = new User() {Email = model.Email,UserName=model.Name};
+                var user = new User() { Email = model.Email, UserName = model.Email/*, UserProfile = new UserProfile()*/};
                 IdentityResult result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    await UserManager.AddToRoleAsync(user.Id, "customer");
                     var provider = new Microsoft.Owin.Security.DataProtection.DpapiDataProtectionProvider("OfferSpace.Web");
                     UserManager.UserTokenProvider = new DataProtectorTokenProvider<User>(provider.Create("EmailConfirmation"));
                     var token = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // генерируем токен для подтверждения регистрации
-                    // создаем ссылку для подтверждения
+
                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = token },
-                               protocol: Request.Url.Scheme);
-                    // отправка письма
+                        protocol: Request.Url.Scheme);
+
                     await UserManager.SendEmailAsync(user.Id, "Подтверждение электронной почты",
-                               "Для завершения регистрации перейдите по ссылке:: <a href=\""
-                                                               + callbackUrl + "\">завершить регистрацию</a>");
+                        "Для завершения регистрации перейдите по ссылке:: <a href=\""
+                        + callbackUrl + "\">завершить регистрацию</a>");
+
                     return View("DisplayEmail");
                 }
                 AddErrors(result);
             }
             return View(model);
         }
+        public ActionResult RegisterCompany()
+        {
+          return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> RegisterCompany(RegisterModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new User() { Email = model.Email, UserName = model.Email };
+                IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    await UserManager.AddToRoleAsync(user.Id, "owner");
+                    var provider = new Microsoft.Owin.Security.DataProtection.DpapiDataProtectionProvider("OfferSpace.Web");
+                    UserManager.UserTokenProvider = new DataProtectorTokenProvider<User>(provider.Create("EmailConfirmation"));
+                    var token = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+
+                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = token },
+                        protocol: Request.Url.Scheme);
+
+                    await UserManager.SendEmailAsync(user.Id, "Подтверждение электронной почты",
+                        "Для завершения регистрации перейдите по ссылке:: <a href=\""
+                        + callbackUrl + "\">завершить регистрацию</a>");
+
+                    return View("DisplayEmail");
+                }
+                AddErrors(result);
+            }
+            return View(model);
+        }
+
         [AllowAnonymous]
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
         {
-            if (userId == null || code == null)
-            {
-                return View("Error");
-            }
-            //var emailConfirmationCode = await UserManager.GenerateEmailConfirmationTokenAsync(userId);
-            //var res = UserManager.ConfirmEmailAsync(userId, emailConfirmationCode);
-            var provider = new Microsoft.Owin.Security.DataProtection.DpapiDataProtectionProvider("OfferSpace.Web");
-            UserManager.UserTokenProvider = new DataProtectorTokenProvider<User>(provider.Create("EmailConfirmation"));
-            var result = await UserManager.ConfirmEmailAsync(userId, code);
-            return View(result.Succeeded ? "ConfirmEmail" : "Error");
-        }
-        private IAuthenticationManager AuthenticationManager
-        {
-            get
-            {
-                return HttpContext.GetOwinContext().Authentication;
-            }
+          if (userId == null || code == null)
+          {
+              return View("Error");
+          }
+          //var emailConfirmationCode = await UserManager.GenerateEmailConfirmationTokenAsync(userId);
+          //var res = UserManager.ConfirmEmailAsync(userId, emailConfirmationCode);
+          var provider = new Microsoft.Owin.Security.DataProtection.DpapiDataProtectionProvider("OfferSpace.Web");
+          UserManager.UserTokenProvider = new DataProtectorTokenProvider<User>(provider.Create("EmailConfirmation"));
+          var result = await UserManager.ConfirmEmailAsync(userId, code);
+          return View(result.Succeeded ? "ConfirmEmail" : "Error");
         }
 
         public ActionResult Login(string returnUrl)
@@ -113,68 +155,40 @@ namespace OfferSpace.Web.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(CompanyLoginModel model, string returnUrl)
+        public async Task<ActionResult> Login(CompanyLoginModel model, string returnUrlSite)
         {
-            
-                //var user = executorRepository.GetAll().FirstOrDefault(name => name.Email == model.Email);
-                /*var user = await UserManager.FindAsync(model.Email, model.Password);
-                if (user != null)
-                {
-                    if (user.EmailConfirmed == true)
-                    {
-                        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                        return RedirectToLocal(returnUrl);
-                    }
-                    else
-                    {
-                        ModelState.AddModelError("", "Не подтвержден email.");
-                    }
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Неверный логин или пароль");
-                }
+            string returnUrl = "/Home/Index";
+            if (returnUrlSite != null)
+            {
+              returnUrl = returnUrlSite;
             }
-            return View(model);*/
-                if (ModelState.IsValid)
+
+            var user = await UserManager.FindAsync(model.Email, model.Password);
+            if (user != null)
+            {
+                if (user.EmailConfirmed == true)
                 {
-                    User user = await UserManager.FindAsync(model.Email, model.Password);
-                    if (user == null)
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    var customer = _customerRepository.GetAll().FirstOrDefault(custUser => custUser.UserId == user.Id);
+                    if (customer == null)
                     {
-                        ModelState.AddModelError("", "Неверный логин или пароль.");
-                    }
-                    else
-                    {
-                        if (user.EmailConfirmed == true)
-                        {
-                            ClaimsIdentity claim = await UserManager.CreateIdentityAsync(user,
-                                                    DefaultAuthenticationTypes.ApplicationCookie);
-                            AuthenticationManager.SignOut();
-                            AuthenticationManager.SignIn(new AuthenticationProperties
-                            {
-                                IsPersistent = true
-                            }, claim);
-                            if (String.IsNullOrEmpty(returnUrl))
-                                return RedirectToAction("Index", "Home");
-                            return Redirect(returnUrl);
-                        }
-                        else { ModelState.AddModelError("", "Неверный логин или пароль."); }
+                        return RedirectToAction("Create", "UserProfile");
                     }
                     return Redirect(returnUrl);
                 }
-                ViewBag.returnUrl = returnUrl;
-                return Redirect(returnUrl);
+                else
+                {
+                    ModelState.AddModelError("", "Не подтвержден email.");
+                }
             }
-        
-        /*public string GetEmailOrUserName(LoginModel model)
-        {
-            using (ApplicationContext db = new ApplicationContext())
+            else
             {
-                var user=db.Users.FirstOrDefault(x=>model.)
+                ModelState.AddModelError("", "Неверный логин или пароль");
             }
-        }*/
+            return View(model);
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Logout()
@@ -182,6 +196,7 @@ namespace OfferSpace.Web.Controllers
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             return RedirectToAction("Login");
         }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -201,12 +216,22 @@ namespace OfferSpace.Web.Controllers
 
             base.Dispose(disposing);
         }
+
         private void AddErrors(IdentityResult result)
         {
             foreach (var error in result.Errors)
             {
                 ModelState.AddModelError("", error);
             }
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult ExternalLogin(string provider, string returnUrl)
+        {
+          // Запрос перенаправления к внешнему поставщику входа
+          return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
         }
     }
 }
