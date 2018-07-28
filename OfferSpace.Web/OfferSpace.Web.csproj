@@ -215,7 +215,6 @@
     <Compile Include="Models\ApplicationUserManager.cs" />
     <Compile Include="Models\CompanyLoginModel.cs" />
     <Compile Include="Models\ConfirmCompanyRegistrationModel.cs" />
-    <Compile Include="Models\ExternalLoginListViewModel.cs" />
     <Compile Include="Models\LaunchRole.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -238,6 +237,8 @@
     <Content Include="Content\LandingStyles\owl.carousel.min.css" />
     <Content Include="Content\LandingStyles\owl.theme.default.min.css" />
     <Content Include="Content\LandingStyles\style.css" />
+    <Content Include="Content\LoginAndRegisterStyles\Login.css" />
+    <Content Include="Content\LoginAndRegisterStyles\RegisterCust.css" />
     <Content Include="Content\stepper.css" />
     <Content Include="e2e\protractor.conf.js" />
     <Content Include="favicon.ico" />
@@ -329,15 +330,11 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\DisplayEmail.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="src\assets\.gitkeep" />
     <Content Include="src\browserslist" />
@@ -347,12 +344,10 @@
     <Content Include="tsconfig.json" />
     <Content Include="tslint.json" />
     <Content Include="Views\User\Index.cshtml" />
-    <Content Include="Views\Shared\_LandingPage.cshtml" />
     <Content Include="Views\Account\RegisterCustomer.cshtml" />
     <Content Include="Views\Account\RegisterCompany.cshtml" />
     <Content Include="Views\UserProfile\Create.cshtml" />
     <Content Include="Views\Company\Create.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />

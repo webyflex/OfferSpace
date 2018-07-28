@@ -48,6 +48,12 @@ namespace OfferSpace.Web
               "~/Content/LandingStyles/owl.theme.default.min.css",  // Owl Carousel
               "~/Content/LandingStyles/flaticon.css",               // Flaticons
               "~/Content/LandingStyles/style.css"));                // Theme style
+
+          bundles.Add(new StyleBundle("~/Content/LoginAndRegisterStyles/css").Include(
+            "~/Content/LoginAndRegisterStyles/Login.css",
+            "~/Content/LoginAndRegisterStyles/RegisterCust.css"
+            ));
+
         }
     }
 }

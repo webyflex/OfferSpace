@@ -151,7 +151,7 @@ namespace OfferSpace.Web.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.returnUrl = returnUrl;
-            return View();
+            return View("Login");
         }
 
         [HttpPost]
@@ -223,15 +223,6 @@ namespace OfferSpace.Web.Controllers
             {
                 ModelState.AddModelError("", error);
             }
-        }
-
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public ActionResult ExternalLogin(string provider, string returnUrl)
-        {
-          // Запрос перенаправления к внешнему поставщику входа
-          return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
         }
     }
 }

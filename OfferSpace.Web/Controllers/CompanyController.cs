@@ -18,7 +18,6 @@ namespace OfferSpace.Web.Controllers
         private ApplicationUserManager _userManager;
         ICompanyRepository _companyRepository;
         ICustomerRepository _customerRepository;
-        //public UserProfileController() { }
         public CompanyController(ICompanyRepository companyRepository, ICustomerRepository customerRepository)
         {
             _companyRepository = companyRepository;

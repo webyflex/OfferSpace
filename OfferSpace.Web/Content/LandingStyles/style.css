@@ -1,4 +1,4 @@
-﻿@font-face {
+@font-face {
     font-family: 'icomoon';
     src: url("../fonts/icomoon/icomoon.eot?srf3rx");
     src: url("../fonts/icomoon/icomoon.eot?srf3rx#iefix") format("embedded-opentype"), url("../fonts/icomoon/icomoon.ttf?srf3rx") format("truetype"), url("../fonts/icomoon/icomoon.woff?srf3rx") format("woff"), url("../fonts/icomoon/icomoon.svg?srf3rx#icomoon") format("svg");
@@ -1863,8 +1863,8 @@ input[type="text"] {
 }
 
     .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-        background: #ade062 !important;
-        border-color: #ade062 !important;
+        background: #ade062 ;
+        border-color: #ade062 ;
     }
 
     .btn-primary.btn-outline {

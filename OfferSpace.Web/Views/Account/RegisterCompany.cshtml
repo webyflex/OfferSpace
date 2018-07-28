@@ -1,37 +1,110 @@
 @model OfferSpace.Web.Models.RegisterModel
-@{
-  ViewBag.Title = "Register company ";
-}
 
-<h2>@ViewBag.Title.</h2>
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>OfferSpace - Register Company</title>
 
-@using (Html.BeginForm("RegisterCompany", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-  @Html.AntiForgeryToken()
-  <h4>Create</h4>
-  <hr />
-  @Html.ValidationSummary("", new { @class = "text-danger" })
-  <div class="form-group">
-    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-    <div class="col-md-10">
-      @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-    </div>
+  <link rel="shortcut icon" href="../../Images/offer-space-icon.ico" type="image/x-icon">
+  <link rel="icon" href="../../Images/offer-space-icon.ico" type="image/x-icon">
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
+
+  @Styles.Render("~/Content/LandingStyles/css")
+
+  @Scripts.Render("~/bundles/modernizr")
+  @Styles.Render("~/Content/LoginAndRegisterStyles/css")
+
+</head>
+<body class="colorlib-intro">
+  <div class="col-md-3 loginRegLogo">
+    <a class="site-logo" href="/Home/Index"><img width="60%" src="../../Images/logo.png" alt="Homepage"></a>
   </div>
-  <div class="form-group">
-    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-    <div class="col-md-10">
-      @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+  
+<div class="loginForm">
+  @using (Html.BeginForm("RegisterCompany", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+  {
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal container">
+      <div class="form-group">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <h1>Register as company</h1>
+          <hr />
+        </div>
+      </div>
+      @Html.ValidationSummary("", new { @class = "text-danger" })
+      <div class="form-group">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <label>Email</label><br />
+          @Html.TextBoxFor(m => m.Email, new { @class = "form-control regInput", @required = "true" })
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <label>Password</label><br />
+          @Html.PasswordFor(m => m.Password, new { @class = "form-control regInput", @required = "true" })
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <label>PasswordConfirm</label><br />
+          @Html.PasswordFor(m => m.PasswordConfirm, new { @class = "form-control regInput" })
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 logbtnf">
+          <button type="submit" class="btn btn-primary btn-outline btn-md">Register</button>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    @Html.LabelFor(m => m.PasswordConfirm, new { @class = "col-md-2 control-label" })
-    <div class="col-md-10">
-      @Html.PasswordFor(m => m.PasswordConfirm, new { @class = "form-control" })
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-md-offset-2 col-md-10">
-      <input type="submit" class="btn btn-default" value="Create" />
-    </div>
-  </div>
-}
+  }
+</div>
+</body>
+</html>
+
+
+
+  @*@model OfferSpace.Web.Models.RegisterModel
+    @{
+      ViewBag.Title = "Register company ";
+    }
+
+    <h2>@ViewBag.Title.</h2>
+    @using (Html.BeginForm("RegisterCompany", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+      @Html.AntiForgeryToken()
+      <h4>Create</h4>
+      <hr />
+      @Html.ValidationSummary("", new { @class = "text-danger" })
+      <div class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+          @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </div>
+      </div>
+      <div class="form-group">
+        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+          @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        </div>
+      </div>
+      <div class="form-group">
+        @Html.LabelFor(m => m.PasswordConfirm, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+          @Html.PasswordFor(m => m.PasswordConfirm, new { @class = "form-control" })
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+          <input type="submit" class="btn btn-default" value="Create" />
+        </div>
+      </div>
+    }*@
