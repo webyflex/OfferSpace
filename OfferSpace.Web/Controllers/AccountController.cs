@@ -173,6 +173,7 @@ namespace OfferSpace.Web.Controllers
                     var customer = _customerRepository.GetAll().FirstOrDefault(custUser => custUser.UserId == user.Id);
                     if (customer == null)
                     {
+
                         return RedirectToAction("Create", "UserProfile");
                     }
                     return Redirect(returnUrl);

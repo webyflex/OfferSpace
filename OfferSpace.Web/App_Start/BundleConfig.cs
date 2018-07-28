@@ -26,9 +26,13 @@ namespace OfferSpace.Web
               "~/Scripts/LandingScripts/jquery.countTo.js",              // Counters
               "~/Scripts/LandingScripts/main.js"));                      // Main
 
-            // Используйте версию Modernizr для разработчиков, чтобы учиться работать. Когда вы будете готовы перейти к работе,
-            // готово к выпуску, используйте средство сборки по адресу https://modernizr.com, чтобы выбрать только необходимые тесты.
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
+            bundles.Add(new ScriptBundle("~/bundles/LandingScripts/js").Include(
+              "~/Scripts/CreatingSteper/jquery-2.2.4.min.js",
+              "~/Scripts/CreatingSteper/jquery.bootstrap.js",
+              "~/Scripts/CreatingSteper/jquery.validate.min.js",
+              "~/Scripts/CreatingSteper/material-bootstrap-wizard.js"));
+
+      bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(

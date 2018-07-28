@@ -217,6 +217,7 @@
     <Compile Include="Models\ConfirmCompanyRegistrationModel.cs" />
     <Compile Include="Models\LaunchRole.cs" />
     <Compile Include="Models\RegisterModel.cs" />
+    <Compile Include="Models\UserCompanyRegisterViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -225,6 +226,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\CreatingStepper\demo.css" />
+    <Content Include="Content\CreatingStepper\material-bootstrap-wizard.css" />
     <Content Include="Content\LandingStyles\animate.css" />
     <Content Include="Content\LandingStyles\bootstrap.css" />
     <Content Include="Content\LandingStyles\flaticon.css" />
@@ -294,7 +297,11 @@
     <Content Include="Content\LandingStyles\style.css.map" />
     <Content Include="Content\LandingStyles\_flaticon.scss" />
     <Content Include="Images\.DS_Store" />
+    <Content Include="Scripts\CreatingSteper\jquery-2.2.4.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\CreatingSteper\jquery.bootstrap.js" />
+    <Content Include="Scripts\CreatingSteper\jquery.validate.min.js" />
+    <Content Include="Scripts\CreatingSteper\material-bootstrap-wizard.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -350,6 +357,7 @@
     <Content Include="Views\Company\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Images\StepperIMG\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
