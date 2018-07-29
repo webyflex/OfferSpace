@@ -26,7 +26,7 @@ namespace OfferSpace.Web
               "~/Scripts/LandingScripts/jquery.countTo.js",              // Counters
               "~/Scripts/LandingScripts/main.js"));                      // Main
 
-            bundles.Add(new ScriptBundle("~/bundles/LandingScripts/js").Include(
+            bundles.Add(new ScriptBundle("~/bundles/CreatingSteper/js").Include(
               "~/Scripts/CreatingSteper/jquery-2.2.4.min.js",
               "~/Scripts/CreatingSteper/jquery.bootstrap.js",
               "~/Scripts/CreatingSteper/jquery.validate.min.js",
