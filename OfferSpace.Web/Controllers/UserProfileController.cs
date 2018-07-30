@@ -61,7 +61,7 @@ namespace OfferSpace.Web.Controllers
         _customerRepository.Create(new UserProfile() { UserId = user.Id, FirstName = userProfile.FirstName, LastName = userProfile.LastName, Image = userProfile.UserImage });
         _customerRepository.SaveChanges();
         if (roles.Contains("customer"))
-          return RedirectToAction("Index", "Home");
+          return RedirectToAction("UserProfile", "User");
         if (roles.Contains("owner"))
         {
           _companyRepository.Create(new Company(){Name = userProfile.CompanyName, Image = userProfile.CompanyImage});

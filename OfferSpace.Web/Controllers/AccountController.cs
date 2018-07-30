@@ -51,13 +51,6 @@ namespace OfferSpace.Web.Controllers
                 return HttpContext.GetOwinContext().Authentication;
             }
         }
-
-        //public AccountController() { }
-        /*public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
-        {
-            UserManager = userManager;
-            SignInManager = signInManager;
-        }*/
         public AccountController(ICustomerRepository customerRepository)
         {
             _customerRepository = customerRepository;
@@ -76,7 +69,7 @@ namespace OfferSpace.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new User() { Email = model.Email, UserName = model.Email/*, UserProfile = new UserProfile()*/};
+                var user = new User() { Email = model.Email, UserName = model.Email};
                 IdentityResult result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -174,10 +167,10 @@ namespace OfferSpace.Web.Controllers
                     if (customer == null)
                     {
 
-                        return RedirectToAction("UserProfile", "User");
+                        return RedirectToAction("Create", "UserProfile");
                     }
-                    return Redirect(returnUrl);
-                }
+                    return RedirectToAction("UserProfile", "User");
+        }
                 else
                 {
                     ModelState.AddModelError("", "Не подтвержден email.");
