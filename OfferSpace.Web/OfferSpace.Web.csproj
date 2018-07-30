@@ -243,6 +243,8 @@
     <Content Include="Content\LoginAndRegisterStyles\Login.css" />
     <Content Include="Content\LoginAndRegisterStyles\RegisterCust.css" />
     <Content Include="Content\stepper.css" />
+    <Content Include="Content\UserProfilePage\bootstrap.min.css" />
+    <Content Include="Content\UserProfilePage\user-profile-page.css" />
     <Content Include="e2e\protractor.conf.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -268,6 +270,7 @@
     <Content Include="Images\person2.jpg" />
     <Content Include="Images\person3.jpg" />
     <Content Include="Images\person4.jpg" />
+    <Content Include="Images\StepperIMG\wizard-profile.jpg" />
     <Content Include="Images\work-1.jpg" />
     <Content Include="Images\work-2.jpg" />
     <Content Include="Images\work-3.jpg" />
@@ -323,6 +326,7 @@
     <Content Include="Scripts\LandingScripts\owl.carousel.min.js" />
     <Content Include="Scripts\LandingScripts\query.magnific-popup.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\UserProfilePage\user-profile-page.js" />
     <Content Include="src\app\components\user\request\request.component.html" />
     <Content Include="src\app\components\user\user.component.html" />
     <Content Include="src\favicon.ico" />
@@ -355,9 +359,11 @@
     <Content Include="Views\Account\RegisterCompany.cshtml" />
     <Content Include="Views\UserProfile\Create.cshtml" />
     <Content Include="Views\Company\Create.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\User\UserProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Images\StepperIMG\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
