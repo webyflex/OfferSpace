@@ -364,6 +364,7 @@
     <Content Include="Views\User\UserProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Images\UserProfile\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
