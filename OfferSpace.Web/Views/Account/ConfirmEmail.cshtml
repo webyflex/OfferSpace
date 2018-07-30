@@ -1,10 +1,28 @@
-﻿@{
-    ViewBag.Title = "Подтверждение почты";
-}
 
-<h2>@ViewBag.Title.</h2>
-<div>
-    <p>
-        Благодарим за подтверждение электронной почты. @Html.ActionLink("Щелкните здесь для входа", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
-    </p>
-</div>
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>OfferSpace</title>
+
+  <link rel="shortcut icon" href="../../Images/offer-space-icon.ico" type="image/x-icon">
+  <link rel="icon" href="../../Images/offer-space-icon.ico" type="image/x-icon">
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
+
+  @Styles.Render("~/Content/LandingStyles/css")
+
+  @Scripts.Render("~/bundles/modernizr")
+  @Styles.Render("~/Content/LoginAndRegisterStyles/css")
+
+</head>
+<body class="colorlib-intro">
+  <div class="col-md-3 loginRegLogo">
+    <a class="site-logo" href="/Home/Index"><img width="60%" src="../../Images/logo.png" alt="Homepage"></a>
+  </div>
+<p class="regmsg"> Thank you for verifying your email.
+  @Html.ActionLink("Click here to sign in.", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</p>
+</body>
+</html>

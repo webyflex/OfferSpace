@@ -1,5 +1,6 @@
 using OfferSpace.BL.Interfaces;
 using OfferSpace.BL.Models;
+using OfferSpace.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace OfferSpace.Web.Controllers
         }
         public ActionResult Index()
         {
+            LaunchRole launchRole = new LaunchRole();
             //locationRepository.Create(new Location { Name = "chernivtsi" });
             //locationRepository.Create(new Location { Name = "chernivtsi", ParentId = 1 });
             //locationRepository.Create(new Location { Name = "kyiv" });

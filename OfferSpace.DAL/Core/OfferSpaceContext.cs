@@ -22,7 +22,7 @@ namespace OfferSpace.DAL.Core
             return new OfferSpaceContext();
         }
 
-        public DbSet<Customer> Customers { get; set; }
+        public DbSet<UserProfile> Customers { get; set; }
         public DbSet<Request> Requests { get; set; }
         public DbSet<RequestCustomer> RequestCustomers { get; set; }
         public DbSet<RequestCustomerDiscusion> RequestCustomerDiscusions { get; set; }

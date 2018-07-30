@@ -1,0 +1,1339 @@
+@{
+  Layout = null;
+}
+
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex">
+  <link rel="shortcut icon" type="image/x-icon" href="~/Images/offer-space-icon.ico">
+
+  <title>OfferSpace</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+  @Styles.Render("~/ContentUserProfilePage/css")
+
+</head>
+
+<body>
+
+  <div class="loader"></div>
+
+  <div class="page">
+
+    @* HEADER *@
+    <header class="header-menu">
+      <div class="container-custom">
+
+        <div class="header-menu-logo">
+          <a href="#">
+            <span class="header-menu-logo-ico">
+              <img class="header-menu-logo-ico-img" src="~/Images/logo.png" alt="">
+            </span>
+          </a>
+        </div>
+
+        <div class="header-menu-items">
+          <div class="header-menu-items-btns">
+            <button class="header-menu-items-btn news">News&#32;<i class="fas fa-newspaper"></i></button>
+            <button class="header-menu-items-btn notif">Notification&#32;<i class="far fa-bell"></i></button>
+            <button class="header-menu-items-btn log">Log out&#32;<i class="fas fa-sign-out-alt"></i></button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    @* USER BAR *@
+    <div class="user-bar-block" background="~/Images/img_bg_4.jpg">
+      <div class="user-block">
+        <div class="user-photo">
+          <img class="user-photo-img d-inline-block align-top rounded-circle" src="~/Images/person3.jpg" alt="">
+        </div>
+        <div class="user-name" align="center">
+          <span class="user-name-text">John Doe</span>
+          <span class="user-name-block-img">
+            <i class="fas fa-user-edit"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="user-bar">
+        <div class="user-bar-create-request">
+          <button class="create-request-btn btn btn-outline-success" type="button">Create request</button>
+        </div>
+      </div>
+    </div>
+    
+    @* LISTS *@
+    <div class="main-frame container-custom">
+      <div class="row">
+
+        <div class="col-xl-6 col-lg-8 col-md-12">
+          <div class="main-request-lists col-12">
+            <div class="row">
+              <div class="status-bar">
+
+                <div class="status-items">
+                  <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" id="all-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
+                        <span class="status-content">
+                          <span class="status-text">All</span>
+                          <span class="badge badge-dark">19</span>
+                        </span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="new-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">
+                        <span class="status-content">
+                          <span class="status-text">New</span>
+                          <span class="badge badge-dark">3</span>
+                        </span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="pending-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">
+                        <span class="status-content">
+                          <span class="status-text">Pending</span>
+                          <span class="badge badge-dark">2</span>
+                        </span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="done-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">
+                        <span class="status-content">
+                          <span class="status-text">Done</span>
+                          <span class="badge badge-dark">14</span>
+                        </span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="canceled-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">
+                        <span class="status-content">
+                          <span class="status-text">Canceled</span>
+                          <span class="badge badge-dark">0</span>
+                        </span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="canceled-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">
+                        <span class="status-content">
+                          <span class="status-text">Archived</span>
+                          <span class="badge badge-dark">0</span>
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="status-filters">
+                  <div class="filter status-block dropdown">
+                    <div class="status-block-img">
+                      <i class="fas fa-filter"></i>
+                    </div>
+
+                    <div class="dropdown-content dropdown-menu">
+                      <a class="dropdown-item" href="#">Filter by name</a>
+                      <a class="dropdown-item" href="#">Filter by date</a>
+                      <a class="dropdown-item" href="#">Filter by price</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Bullshit</a>
+                    </div>
+                  </div>
+
+                  <div class="sorter status-block dropdown">
+                    <div class="status-block-img">
+                      <i class="fas fa-sort"></i>
+                    </div>
+
+                    <div class="dropdown-content dropdown-menu">
+                      <a class="dropdown-item" href="#">Sort by name</a>
+                      <a class="dropdown-item" href="#">Sort by date</a>
+                      <a class="dropdown-item" href="#">Sort by price</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Bullshit</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="request-lists-block list-group scrollbar" id="scroll">
+
+                <div class="request-list-item list-group-item list-group-item-action">
+                  <div class="request-list-item-photo">
+                    <a href="#">
+                      <img class="request-list-item-img" src="images/picture.png" alt="">
+                    </a>
+                  </div>
+
+                  <div class="request-list-item-content">
+                    <div class="request-list-item-content-header">
+                      <span class="request-title">Request Title</span>
+                      <span class="request-category">Category/Sub Category</span>
+                      <span class="request-date">May 31, 2017</span>
+                    </div>
+
+                    <div class="request-list-item-content-info">
+
+                      <div class="request-list-item-content-details">
+                        <div class="request-list-item-content-details-price">
+                          <span class="request-price-ico"><i class="far fa-money-bill-alt"></i></span>
+                          <span class="request-price-between">
+                            <span class="price price-first">$80</span>
+                            <span class="line">-</span>
+                            <span class="price price-second">$120</span>
+                          </span>
+                        </div>
+
+                        <div class="request-list-item-content-details-date">
+                          <span class="request-date-ico"><i class="far fa-calendar-alt"></i></span>
+                          <span class="request-date">May 15, 2017 9:00 AM</span>
+                        </div>
+                      </div>
+
+                      <div class="request-list-item-content-info-description">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Vestibulum vehicula convallis purus vitae iaculis.
+                        Maecenas placerat nulla sit amet laoreet vestibulum.
+                        Nulla facilisi. Vivamus quis pharetra nibh.
+                        Integer porttitor gravida ex eu accumsan.
+                        Aliquam tincidunt augue convallis, consectetur neque vitae,
+                        blandit diam.
+                      </div>
+                    </div>
+
+                    <div class="request-list-item-options">
+                      <div class="request-list-item-options-buttons">
+                        <div class="request-btn">
+                          <i class="far fa-edit"></i>
+                        </div>
+                        <div class="request-btn">
+                          <i class="far fa-envelope"></i>
+                        </div>
+                        <div class="request-btn">
+                          <i class="fas fa-times"></i>
+                        </div>
+                        <div class="request-btn">
+                          <i class="fas fa-trash-alt"></i>
+                        </div>
+                      </div>
+
+                      <div class="request-list-item-options-status">
+                        <span class="sts badge badge-success">New</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="request-list-item-btn">
+                    <div class="menu-btn">
+                      <span></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="request-list-item list-group-item list-group-item-action">
+                  <div class="request-list-item-photo">
+                    <a href="#">
+                      <img class="request-list-item-img" src="images/picture.png" alt="">
+                    </a>
+                  </div>
+
+                  <div class="request-list-item-content">
+                    <div class="request-list-item-content-header">
+                      <span class="request-title">Request Title</span>
+                      <span class="request-category">Category/Sub Category</span>
+                      <span class="request-date">May 31, 2017</span>
+                    </div>
+
+                    <div class="request-list-item-content-info">
+
+                      <div class="request-list-item-content-details">
+                        <div class="request-list-item-content-details-price">
+                          <span class="request-price-ico"><i class="far fa-money-bill-alt"></i></span>
+                          <span class="request-price-between">
+                            <span class="price price-first">$80</span>
+                            <span class="line">-</span>
+                            <span class="price price-second">$120</span>
+                          </span>
+                        </div>
+
+                        <div class="request-list-item-content-details-date">
+                          <span class="request-date-ico"><i class="far fa-calendar-alt"></i></span>
+                          <span class="request-date">May 15, 2017 9:00 AM</span>
+                        </div>
+                      </div>
+
+                      <div class="request-list-item-content-info-description">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Vestibulum vehicula convallis purus vitae iaculis.
+                        Maecenas placerat nulla sit amet laoreet vestibulum.
+                        Nulla facilisi. Vivamus quis pharetra nibh.
+                        Integer porttitor gravida ex eu accumsan.
+                        Aliquam tincidunt augue convallis, consectetur neque vitae,
+                        blandit diam.
+                      </div>
+                    </div>
+
+                    <div class="request-list-item-options">
+                      <div class="request-list-item-options-buttons">
+                        <div class="request-btn">
+                          <i class="far fa-edit"></i>
+                        </div>
+                        <div class="request-btn">
+                          <i class="far fa-envelope"></i>
+                        </div>
+                        <div class="request-btn">
+                          <i class="fas fa-times"></i>
+                        </div>
+                        <div class="request-btn">
+                          <i class="fas fa-trash-alt"></i>
+                        </div>
+                      </div>
+
+                      <div class="request-list-item-options-status">
+                        <span class="badge badge-success">New</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="request-list-item-btn">
+                    <div class="menu-btn">
+                      <span></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="request-list-item list-group-item list-group-item-action">
+                  <div class="request-list-item-photo">
+                    <a href="#">
+                      <img class="request-list-item-img" src="images/picture.png" alt="">
+                    </a>
+                  </div>
+
+                  <div class="request-list-item-content">
+                    <div class="request-list-item-content-header">
+                      <span class="request-title">Request Title</span>
+                      <span class="request-category">Category/Sub Category</span>
+                      <span class="request-date">May 31, 2017</span>
+                    </div>
+
+                    <div class="request-list-item-content-info">
+
+                      <div class="request-list-item-content-details">
+                        <div class="request-list-item-content-details-price">
+                          <span class="request-price-ico"><i class="far fa-money-bill-alt"></i></span>
+                          <span class="request-price-between">
+                            <span class="price price-first">$80</span>
+                            <span class="line">-</span>
+                            <span class="price price-second">$120</span>
+                          </span>
+                        </div>
+
+                        <div class="request-list-item-content-details-date">
+                          <span class="request-date-ico"><i class="far fa-calendar-alt"></i></span>
+                          <span class="request-date">May 15, 2017 9:00 AM</span>
+                        </div>
+                      </div>
+
+                      <div class="request-list-item-content-info-description">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Vestibulum vehicula convallis purus vitae iaculis.
+                        Maecenas placerat nulla sit amet laoreet vestibulum.
+                        Nulla facilisi. Vivamus quis pharetra nibh.
+                        Integer porttitor gravida ex eu accumsan.
+                        Aliquam tincidunt augue convallis, consectetur neque vitae,
+                        blandit diam.
+                      </div>
+                    </div>
+
+                    <div class="request-list-item-options">
+                      <div class="request-list-item-options-buttons">
+                        <div class="request-btn">
+                          <i class="far fa-edit"></i>
+                        </div>
+                        <div class="request-btn">
+                          <i class="far fa-envelope"></i>
+                        </div>
+                        <div class="request-btn">
+                          <i class="fas fa-times"></i>
+                        </div>
+                        <div class="request-btn">
+                          <i class="fas fa-trash-alt"></i>
+                        </div>
+                      </div>
+
+                      <div class="request-list-item-options-status">
+                        <span class="badge badge-success">New</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="request-list-item-btn">
+                    <div class="menu-btn">
+                      <span></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="request-list-item list-group-item list-group-item-action">
+                  <div class="request-list-item-photo">
+                    <a href="#">
+                      <img class="request-list-item-img" src="images/picture.png" alt="">
+                    </a>
+                  </div>
+
+                  <div class="request-list-item-content">
+                    <div class="request-list-item-content-header">
+                      <span class="request-title">Request Title</span>
+                      <span class="request-category">Category/Sub Category</span>
+                      <span class="request-date">May 31, 2017</span>
+                    </div>
+
+                    <div class="request-list-item-content-info">
+
+                      <div class="request-list-item-content-details">
+                        <div class="request-list-item-content-details-price">
+                          <span class="request-price-ico"><i class="far fa-money-bill-alt"></i></span>
+                          <span class="request-price-between">
+                            <span class="price price-first">$80</span>
+                            <span class="line">-</span>
+                            <span class="price price-second">$120</span>
+                          </span>
+                        </div>
+
+                        <div class="request-list-item-content-details-date">
+                          <span class="request-date-ico"><i class="far fa-calendar-alt"></i></span>
+                          <span class="request-date">May 15, 2017 9:00 AM</span>
+                        </div>
+                      </div>
+
+                      <div class="request-list-item-content-info-description">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Vestibulum vehicula convallis purus vitae iaculis.
+                        Maecenas placerat nulla sit amet laoreet vestibulum.
+                        Nulla facilisi. Vivamus quis pharetra nibh.
+                        Integer porttitor gravida ex eu accumsan.
+                        Aliquam tincidunt augue convallis, consectetur neque vitae,
+                        blandit diam.
+                      </div>
+                    </div>
+
+                    <div class="request-list-item-options">
+                      <div class="request-list-item-options-buttons">
+                        <div class="request-btn">
+                          <i class="far fa-edit"></i>
+                        </div>
+                        <div class="request-btn">
+                          <i class="far fa-envelope"></i>
+                        </div>
+                        <div class="request-btn">
+                          <i class="fas fa-times"></i>
+                        </div>
+                        <div class="request-btn">
+                          <i class="fas fa-trash-alt"></i>
+                        </div>
+                      </div>
+
+                      <div class="request-list-item-options-status">
+                        <span class="badge badge-success">New</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="request-list-item-btn">
+                    <div class="menu-btn">
+                      <span></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="request-list-item list-group-item list-group-item-action">
+                  <div class="request-list-item-photo">
+                    <a href="#">
+                      <img class="request-list-item-img" src="images/picture.png" alt="">
+                    </a>
+                  </div>
+
+                  <div class="request-list-item-content">
+                    <div class="request-list-item-content-header">
+                      <span class="request-title">Request Title</span>
+                      <span class="request-category">Category/Sub Category</span>
+                      <span class="request-date">May 31, 2017</span>
+                    </div>
+
+                    <div class="request-list-item-content-info">
+
+                      <div class="request-list-item-content-details">
+                        <div class="request-list-item-content-details-price">
+                          <span class="request-price-ico"><i class="far fa-money-bill-alt"></i></span>
+                          <span class="request-price-between">
+                            <span class="price price-first">$80</span>
+                            <span class="line">-</span>
+                            <span class="price price-second">$120</span>
+                          </span>
+                        </div>
+
+                        <div class="request-list-item-content-details-date">
+                          <span class="request-date-ico"><i class="far fa-calendar-alt"></i></span>
+                          <span class="request-date">May 15, 2017 9:00 AM</span>
+                        </div>
+                      </div>
+
+                      <div class="request-list-item-content-info-description">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Vestibulum vehicula convallis purus vitae iaculis.
+                        Maecenas placerat nulla sit amet laoreet vestibulum.
+                        Nulla facilisi. Vivamus quis pharetra nibh.
+                        Integer porttitor gravida ex eu accumsan.
+                        Aliquam tincidunt augue convallis, consectetur neque vitae,
+                        blandit diam.
+                      </div>
+                    </div>
+
+                    <div class="request-list-item-options">
+                      <div class="request-list-item-options-buttons">
+                        <div class="request-btn">
+                          <i class="far fa-edit"></i>
+                        </div>
+                        <div class="request-btn">
+                          <i class="far fa-envelope"></i>
+                        </div>
+                        <div class="request-btn">
+                          <i class="fas fa-times"></i>
+                        </div>
+                        <div class="request-btn">
+                          <i class="fas fa-trash-alt"></i>
+                        </div>
+                      </div>
+
+                      <div class="request-list-item-options-status">
+                        <span class="badge badge-success">New</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="request-list-item-btn">
+                    <div class="menu-btn">
+                      <span></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="request-list-item list-group-item list-group-item-action">
+                  <div class="request-list-item-photo">
+                    <a href="#">
+                      <img class="request-list-item-img" src="images/picture.png" alt="">
+                    </a>
+                  </div>
+
+                  <div class="request-list-item-content">
+                    <div class="request-list-item-content-header">
+                      <span class="request-title">Request Title</span>
+                      <span class="request-category">Category/Sub Category</span>
+                      <span class="request-date">May 31, 2017</span>
+                    </div>
+
+                    <div class="request-list-item-content-info">
+
+                      <div class="request-list-item-content-details">
+                        <div class="request-list-item-content-details-price">
+                          <span class="request-price-ico"><i class="far fa-money-bill-alt"></i></span>
+                          <span class="request-price-between">
+                            <span class="price price-first">$80</span>
+                            <span class="line">-</span>
+                            <span class="price price-second">$120</span>
+                          </span>
+                        </div>
+
+                        <div class="request-list-item-content-details-date">
+                          <span class="request-date-ico"><i class="far fa-calendar-alt"></i></span>
+                          <span class="request-date">May 15, 2017 9:00 AM</span>
+                        </div>
+                      </div>
+
+                      <div class="request-list-item-content-info-description">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Vestibulum vehicula convallis purus vitae iaculis.
+                        Maecenas placerat nulla sit amet laoreet vestibulum.
+                        Nulla facilisi. Vivamus quis pharetra nibh.
+                        Integer porttitor gravida ex eu accumsan.
+                        Aliquam tincidunt augue convallis, consectetur neque vitae,
+                        blandit diam.
+                      </div>
+                    </div>
+
+                    <div class="request-list-item-options">
+                      <div class="request-list-item-options-buttons">
+                        <div class="request-btn">
+                          <i class="far fa-edit"></i>
+                        </div>
+                        <div class="request-btn">
+                          <i class="far fa-envelope"></i>
+                        </div>
+                        <div class="request-btn">
+                          <i class="fas fa-times"></i>
+                        </div>
+                        <div class="request-btn">
+                          <i class="fas fa-trash-alt"></i>
+                        </div>
+                      </div>
+
+                      <div class="request-list-item-options-status">
+                        <span class="badge badge-success">New</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="request-list-item-btn">
+                    <div class="menu-btn">
+                      <span></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="request-list-item list-group-item list-group-item-action">
+                  <div class="request-list-item-photo">
+                    <a href="#">
+                      <img class="request-list-item-img" src="images/picture.png" alt="">
+                    </a>
+                  </div>
+
+                  <div class="request-list-item-content">
+                    <div class="request-list-item-content-header">
+                      <span class="request-title">Request Title</span>
+                      <span class="request-category">Category/Sub Category</span>
+                      <span class="request-date">May 31, 2017</span>
+                    </div>
+
+                    <div class="request-list-item-content-info">
+
+                      <div class="request-list-item-content-details">
+                        <div class="request-list-item-content-details-price">
+                          <span class="request-price-ico"><i class="far fa-money-bill-alt"></i></span>
+                          <span class="request-price-between">
+                            <span class="price price-first">$80</span>
+                            <span class="line">-</span>
+                            <span class="price price-second">$120</span>
+                          </span>
+                        </div>
+
+                        <div class="request-list-item-content-details-date">
+                          <span class="request-date-ico"><i class="far fa-calendar-alt"></i></span>
+                          <span class="request-date">May 15, 2017 9:00 AM</span>
+                        </div>
+                      </div>
+
+                      <div class="request-list-item-content-info-description">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Vestibulum vehicula convallis purus vitae iaculis.
+                        Maecenas placerat nulla sit amet laoreet vestibulum.
+                        Nulla facilisi. Vivamus quis pharetra nibh.
+                        Integer porttitor gravida ex eu accumsan.
+                        Aliquam tincidunt augue convallis, consectetur neque vitae,
+                        blandit diam.
+                      </div>
+                    </div>
+
+                    <div class="request-list-item-options">
+                      <div class="request-list-item-options-buttons">
+                        <div class="request-btn">
+                          <i class="far fa-edit"></i>
+                        </div>
+                        <div class="request-btn">
+                          <i class="far fa-envelope"></i>
+                        </div>
+                        <div class="request-btn">
+                          <i class="fas fa-times"></i>
+                        </div>
+                        <div class="request-btn">
+                          <i class="fas fa-trash-alt"></i>
+                        </div>
+                      </div>
+
+                      <div class="request-list-item-options-status">
+                        <span class="badge badge-success">New</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="request-list-item-btn">
+                    <div class="menu-btn">
+                      <span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="company-list">
+            <div class="company-list-header row">
+              <div class="company-list-header-text">
+                <p>Requests from Companies</p>
+              </div>
+              <div class="company-list-header-button">
+
+              </div>
+            </div>
+
+            <div class="company-list-items list-group scrollbar" id="scroll">
+              <div class="company-list-item list-group-item list-group-item-action">
+                <div class="company-list-item-photo">
+                  <a href="#">
+                    <img class="company-list-item-img" src="images/picture.png" alt="">
+                  </a>
+                </div>
+
+                <div class="company-list-item-content">
+                  <div class="company-list-item-content-header panel-footer">
+                    <a class="company-list-item-content-header-link" href="#">
+                      <span class="company-title">Company Name</span>
+                    </a>
+                    <span class="company-date">May 31, 2017</span>
+                  </div>
+
+                  <div class="company-list-item-content-info">
+                    <div class="company-list-item-content-text">
+                      <div class="company-list-item-content-text-rate">
+                        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                      </div>
+                      <div class="company-list-item-content-text-description">
+                        Ready to work on your request
+                      </div>
+                    </div>
+
+                    <div class="company-list-item-content-info-btn">
+                      <i class="far fa-envelope"></i>
+                    </div>
+                  </div>
+
+                  <div class="company-list-item-details">
+                    <div class="company-list-item-details-price">
+                      <i class="far fa-money-bill-alt"></i>
+                      <span class="company-list-price"> $90</span>
+                    </div>
+                    <div class="company-list-item-details-date">
+                      May 15, 2017 04:00 PM
+                    </div>
+                  </div>
+                </div>
+
+                <div class="company-list-item-btn">
+                  <div class="menu-btn">
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="company-list-item list-group-item list-group-item-action">
+                <div class="company-list-item-photo">
+                  <a href="#">
+                    <img class="company-list-item-img" src="images/picture.png" alt="">
+                  </a>
+                </div>
+
+                <div class="company-list-item-content">
+                  <div class="company-list-item-content-header panel-footer">
+                    <a class="company-list-item-content-header-link" href="#">
+                      <span class="company-title">Company Name</span>
+                    </a>
+                    <span class="company-date">May 31, 2017</span>
+                  </div>
+
+                  <div class="company-list-item-content-info">
+                    <div class="company-list-item-content-text">
+                      <div class="company-list-item-content-text-rate">
+                        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                      </div>
+                      <div class="company-list-item-content-text-description">
+                        Ready to work on your request
+                      </div>
+                    </div>
+
+                    <div class="company-list-item-content-info-btn">
+                      <i class="far fa-envelope"></i>
+                    </div>
+                  </div>
+
+                  <div class="company-list-item-details">
+                    <div class="company-list-item-details-price">
+                      <i class="far fa-money-bill-alt"></i>
+                      <span class="company-list-price"> $90</span>
+                    </div>
+                    <div class="company-list-item-details-date">
+                      May 15, 2017 04:00 PM
+                    </div>
+                  </div>
+                </div>
+
+                <div class="company-list-item-btn">
+                  <div class="menu-btn">
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+              <div class="company-list-item list-group-item list-group-item-action">
+                <div class="company-list-item-photo">
+                  <a href="#">
+                    <img class="company-list-item-img" src="images/picture.png" alt="">
+                  </a>
+                </div>
+
+                <div class="company-list-item-content">
+                  <div class="company-list-item-content-header panel-footer">
+                    <a class="company-list-item-content-header-link" href="#">
+                      <span class="company-title">Company Name</span>
+                    </a>
+                    <span class="company-date">May 31, 2017</span>
+                  </div>
+
+                  <div class="company-list-item-content-info">
+                    <div class="company-list-item-content-text">
+                      <div class="company-list-item-content-text-rate">
+                        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                      </div>
+                      <div class="company-list-item-content-text-description">
+                        Ready to work on your request
+                      </div>
+                    </div>
+
+                    <div class="company-list-item-content-info-btn">
+                      <i class="far fa-envelope"></i>
+                    </div>
+                  </div>
+
+                  <div class="company-list-item-details">
+                    <div class="company-list-item-details-price">
+                      <i class="far fa-money-bill-alt"></i>
+                      <span class="company-list-price"> $90</span>
+                    </div>
+                    <div class="company-list-item-details-date">
+                      May 15, 2017 04:00 PM
+                    </div>
+                  </div>
+                </div>
+
+                <div class="company-list-item-btn">
+                  <div class="menu-btn">
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+              <div class="company-list-item list-group-item list-group-item-action">
+                <div class="company-list-item-photo">
+                  <a href="#">
+                    <img class="company-list-item-img" src="images/picture.png" alt="">
+                  </a>
+                </div>
+
+                <div class="company-list-item-content">
+                  <div class="company-list-item-content-header panel-footer">
+                    <a class="company-list-item-content-header-link" href="#">
+                      <span class="company-title">Company Name</span>
+                    </a>
+                    <span class="company-date">May 31, 2017</span>
+                  </div>
+
+                  <div class="company-list-item-content-info">
+                    <div class="company-list-item-content-text">
+                      <div class="company-list-item-content-text-rate">
+                        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                      </div>
+                      <div class="company-list-item-content-text-description">
+                        Ready to work on your request
+                      </div>
+                    </div>
+
+                    <div class="company-list-item-content-info-btn">
+                      <i class="far fa-envelope"></i>
+                    </div>
+                  </div>
+
+                  <div class="company-list-item-details">
+                    <div class="company-list-item-details-price">
+                      <i class="far fa-money-bill-alt"></i>
+                      <span class="company-list-price"> $90</span>
+                    </div>
+                    <div class="company-list-item-details-date">
+                      May 15, 2017 04:00 PM
+                    </div>
+                  </div>
+                </div>
+
+                <div class="company-list-item-btn">
+                  <div class="menu-btn">
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+              <div class="company-list-item list-group-item list-group-item-action">
+                <div class="company-list-item-photo">
+                  <a href="#">
+                    <img class="company-list-item-img" src="images/picture.png" alt="">
+                  </a>
+                </div>
+
+                <div class="company-list-item-content">
+                  <div class="company-list-item-content-header panel-footer">
+                    <a class="company-list-item-content-header-link" href="#">
+                      <span class="company-title">Company Name</span>
+                    </a>
+                    <span class="company-date">May 31, 2017</span>
+                  </div>
+
+                  <div class="company-list-item-content-info">
+                    <div class="company-list-item-content-text">
+                      <div class="company-list-item-content-text-rate">
+                        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                      </div>
+                      <div class="company-list-item-content-text-description">
+                        Ready to work on your request
+                      </div>
+                    </div>
+
+                    <div class="company-list-item-content-info-btn">
+                      <i class="far fa-envelope"></i>
+                    </div>
+                  </div>
+
+                  <div class="company-list-item-details">
+                    <div class="company-list-item-details-price">
+                      <i class="far fa-money-bill-alt"></i>
+                      <span class="company-list-price"> $90</span>
+                    </div>
+                    <div class="company-list-item-details-date">
+                      May 15, 2017 04:00 PM
+                    </div>
+                  </div>
+                </div>
+
+                <div class="company-list-item-btn">
+                  <div class="menu-btn">
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+              <div class="company-list-item list-group-item list-group-item-action">
+                <div class="company-list-item-photo">
+                  <a href="#">
+                    <img class="company-list-item-img" src="images/picture.png" alt="">
+                  </a>
+                </div>
+
+                <div class="company-list-item-content">
+                  <div class="company-list-item-content-header panel-footer">
+                    <a class="company-list-item-content-header-link" href="#">
+                      <span class="company-title">Company Name</span>
+                    </a>
+                    <span class="company-date">May 31, 2017</span>
+                  </div>
+
+                  <div class="company-list-item-content-info">
+                    <div class="company-list-item-content-text">
+                      <div class="company-list-item-content-text-rate">
+                        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                      </div>
+                      <div class="company-list-item-content-text-description">
+                        Ready to work on your request
+                      </div>
+                    </div>
+
+                    <div class="company-list-item-content-info-btn">
+                      <i class="far fa-envelope"></i>
+                    </div>
+                  </div>
+
+                  <div class="company-list-item-details">
+                    <div class="company-list-item-details-price">
+                      <i class="far fa-money-bill-alt"></i>
+                      <span class="company-list-price"> $90</span>
+                    </div>
+                    <div class="company-list-item-details-date">
+                      May 15, 2017 04:00 PM
+                    </div>
+                  </div>
+                </div>
+
+                <div class="company-list-item-btn">
+                  <div class="menu-btn">
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+              <div class="company-list-item list-group-item list-group-item-action">
+                <div class="company-list-item-photo">
+                  <a href="#">
+                    <img class="company-list-item-img" src="images/picture.png" alt="">
+                  </a>
+                </div>
+
+                <div class="company-list-item-content">
+                  <div class="company-list-item-content-header panel-footer">
+                    <a class="company-list-item-content-header-link" href="#">
+                      <span class="company-title">Company Name</span>
+                    </a>
+                    <span class="company-date">May 31, 2017</span>
+                  </div>
+
+                  <div class="company-list-item-content-info">
+                    <div class="company-list-item-content-text">
+                      <div class="company-list-item-content-text-rate">
+                        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                      </div>
+                      <div class="company-list-item-content-text-description">
+                        Ready to work on your request
+                      </div>
+                    </div>
+
+                    <div class="company-list-item-content-info-btn">
+                      <i class="far fa-envelope"></i>
+                    </div>
+                  </div>
+
+                  <div class="company-list-item-details">
+                    <div class="company-list-item-details-price">
+                      <i class="far fa-money-bill-alt"></i>
+                      <span class="company-list-price"> $90</span>
+                    </div>
+                    <div class="company-list-item-details-date">
+                      May 15, 2017 04:00 PM
+                    </div>
+                  </div>
+                </div>
+
+                <div class="company-list-item-btn">
+                  <div class="menu-btn">
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+              <div class="company-list-item list-group-item list-group-item-action">
+                <div class="company-list-item-photo">
+                  <a href="#">
+                    <img class="company-list-item-img" src="images/picture.png" alt="">
+                  </a>
+                </div>
+
+                <div class="company-list-item-content">
+                  <div class="company-list-item-content-header panel-footer">
+                    <a class="company-list-item-content-header-link" href="#">
+                      <span class="company-title">Company Name</span>
+                    </a>
+                    <span class="company-date">May 31, 2017</span>
+                  </div>
+
+                  <div class="company-list-item-content-info">
+                    <div class="company-list-item-content-text">
+                      <div class="company-list-item-content-text-rate">
+                        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                      </div>
+                      <div class="company-list-item-content-text-description">
+                        Ready to work on your request
+                      </div>
+                    </div>
+
+                    <div class="company-list-item-content-info-btn">
+                      <i class="far fa-envelope"></i>
+                    </div>
+                  </div>
+
+                  <div class="company-list-item-details">
+                    <div class="company-list-item-details-price">
+                      <i class="far fa-money-bill-alt"></i>
+                      <span class="company-list-price"> $90</span>
+                    </div>
+                    <div class="company-list-item-details-date">
+                      May 15, 2017 04:00 PM
+                    </div>
+                  </div>
+                </div>
+
+                <div class="company-list-item-btn">
+                  <div class="menu-btn">
+                    <span></span>
+                  </div>
+                </div>
+              </div><div class="company-list-item list-group-item list-group-item-action">
+                <div class="company-list-item-photo">
+                  <a href="#">
+                    <img class="company-list-item-img" src="images/picture.png" alt="">
+                  </a>
+                </div>
+
+                <div class="company-list-item-content">
+                  <div class="company-list-item-content-header panel-footer">
+                    <a class="company-list-item-content-header-link" href="#">
+                      <span class="company-title">Company Name</span>
+                    </a>
+                    <span class="company-date">May 31, 2017</span>
+                  </div>
+
+                  <div class="company-list-item-content-info">
+                    <div class="company-list-item-content-text">
+                      <div class="company-list-item-content-text-rate">
+                        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                      </div>
+                      <div class="company-list-item-content-text-description">
+                        Ready to work on your request
+                      </div>
+                    </div>
+
+                    <div class="company-list-item-content-info-btn">
+                      <i class="far fa-envelope"></i>
+                    </div>
+                  </div>
+
+                  <div class="company-list-item-details">
+                    <div class="company-list-item-details-price">
+                      <i class="far fa-money-bill-alt"></i>
+                      <span class="company-list-price"> $90</span>
+                    </div>
+                    <div class="company-list-item-details-date">
+                      May 15, 2017 04:00 PM
+                    </div>
+                  </div>
+                </div>
+
+                <div class="company-list-item-btn">
+                  <div class="menu-btn">
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+              <div class="company-list-item list-group-item list-group-item-action">
+                <div class="company-list-item-photo">
+                  <a href="#">
+                    <img class="company-list-item-img" src="images/picture.png" alt="">
+                  </a>
+                </div>
+
+                <div class="company-list-item-content">
+                  <div class="company-list-item-content-header panel-footer">
+                    <a class="company-list-item-content-header-link" href="#">
+                      <span class="company-title">Company Name</span>
+                    </a>
+                    <span class="company-date">May 31, 2017</span>
+                  </div>
+
+                  <div class="company-list-item-content-info">
+                    <div class="company-list-item-content-text">
+                      <div class="company-list-item-content-text-rate">
+                        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                      </div>
+                      <div class="company-list-item-content-text-description">
+                        Ready to work on your request
+                      </div>
+                    </div>
+
+                    <div class="company-list-item-content-info-btn">
+                      <i class="far fa-envelope"></i>
+                    </div>
+                  </div>
+
+                  <div class="company-list-item-details">
+                    <div class="company-list-item-details-price">
+                      <i class="far fa-money-bill-alt"></i>
+                      <span class="company-list-price"> $90</span>
+                    </div>
+                    <div class="company-list-item-details-date">
+                      May 15, 2017 04:00 PM
+                    </div>
+                  </div>
+                </div>
+
+                <div class="company-list-item-btn">
+                  <div class="menu-btn">
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+              <div class="company-list-item list-group-item list-group-item-action">
+                <div class="company-list-item-photo">
+                  <a href="#">
+                    <img class="company-list-item-img" src="images/picture.png" alt="">
+                  </a>
+                </div>
+
+                <div class="company-list-item-content">
+                  <div class="company-list-item-content-header panel-footer">
+                    <a class="company-list-item-content-header-link" href="#">
+                      <span class="company-title">Company Name</span>
+                    </a>
+                    <span class="company-date">May 31, 2017</span>
+                  </div>
+
+                  <div class="company-list-item-content-info">
+                    <div class="company-list-item-content-text">
+                      <div class="company-list-item-content-text-rate">
+                        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                      </div>
+                      <div class="company-list-item-content-text-description">
+                        Ready to work on your request
+                      </div>
+                    </div>
+
+                    <div class="company-list-item-content-info-btn">
+                      <i class="far fa-envelope"></i>
+                    </div>
+                  </div>
+
+                  <div class="company-list-item-details">
+                    <div class="company-list-item-details-price">
+                      <i class="far fa-money-bill-alt"></i>
+                      <span class="company-list-price"> $90</span>
+                    </div>
+                    <div class="company-list-item-details-date">
+                      May 15, 2017 04:00 PM
+                    </div>
+                  </div>
+                </div>
+
+                <div class="company-list-item-btn">
+                  <div class="menu-btn">
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-12 col-md-6">
+          <div class="discussion-list">
+
+            <div class="discussion-list-header row">
+              <div class="discussion-list-header-add">
+                <button type="button" class="btn btn-outline-dark">Add event</button>
+              </div>
+              <div class="discussion-list-header-remove ">
+                <button type="button" class="btn btn-outline-dark">Remove event</button>
+              </div>
+            </div>
+
+            <div class="discussion-list-tree scrollbar" id="scroll">
+              <ul class="timeline discussion-list-tree-timeline force-overflow">
+                <li>
+                  <div class="timeline-badge info"><i class="glyphicon glyphicon-hand-right"></i></div>
+                  <div class="timeline-panel danger">
+                    <div class="timeline-heading">
+                      <h4 class="timeline-title">Bootstrap 3 released</h4>
+                      <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> August 2013</small></p>
+                    </div>
+                    <div class="timeline-body">
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                        Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+                        dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+                        Aliquam in felis sit amet augue.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="timeline-badge warning"><i class="glyphicon glyphicon-hand-right"></i></div>
+                  <div class="timeline-panel">
+                    <div class="timeline-heading">
+                      <h4 class="timeline-title">Bootstrap 3 released</h4>
+                      <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> August 2013</small></p>
+                    </div>
+                    <div class="timeline-body">
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                        Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+                        dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+                        Aliquam in felis sit amet augue.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="timeline-badge info"><i class="glyphicon glyphicon-hand-right"></i></div>
+                  <div class="timeline-panel danger">
+                    <div class="timeline-heading">
+                      <h4 class="timeline-title">Bootstrap 3 released</h4>
+                      <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> August 2013</small></p>
+                    </div>
+                    <div class="timeline-body">
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                        Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+                        dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+                        Aliquam in felis sit amet augue.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="timeline-badge info"><i class="glyphicon glyphicon-hand-right"></i></div>
+                  <div class="timeline-panel danger">
+                    <div class="timeline-heading">
+                      <h4 class="timeline-title">Bootstrap 3 released</h4>
+                      <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> August 2013</small></p>
+                    </div>
+                    <div class="timeline-body">
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                        Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+                        dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+                        Aliquam in felis sit amet augue.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="timeline-badge info"><i class="glyphicon glyphicon-hand-right"></i></div>
+                  <div class="timeline-panel danger">
+                    <div class="timeline-heading">
+                      <h4 class="timeline-title">Bootstrap 3 released</h4>
+                      <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> August 2013</small></p>
+                    </div>
+                    <div class="timeline-body">
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                        Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+                        dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+                        Aliquam in felis sit amet augue.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+
+                <li>
+                  <div class="timeline-badge primary"><img class="timeline-badge-img" src="images/finish-flag.svg" alt=""></div>
+                  <div class="timeline-panel danger timeline-panel-start">
+                    <div class="timeline-heading">
+                      <h4 class="timeline-title">Request was created</h4>
+                      <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> August 2013</small></p>
+                    </div>
+                    <div class="timeline-body">
+                      <p>May 12, 2017 10:43 AM</p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    @* FOOTER *@
+    <footer class="footer container-custom">
+
+      FOOTER
+
+    </footer>
+
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  @Scripts.Render("~/bundles/user-profile-page/js")
+</body>
+
+</html>

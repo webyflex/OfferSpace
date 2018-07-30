@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace OfferSpace.BL.Models
 {
-    public class Customer : IEntity<long>
+    public class UserProfile : IEntity<long>
     {
         [Key]
         public long Id { get; set; }

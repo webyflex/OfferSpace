@@ -1,7 +1,27 @@
-﻿@{
-    ViewBag.Title = "Завершение регистрации";
-}
- 
-<h2>@ViewBag.Title</h2>
- 
-<p>На указанный электронный адрес отправлены дальнейшие инструкции по завершению регистрации</p>
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>OfferSpace</title>
+
+  <link rel="shortcut icon" href="../../Images/offer-space-icon.ico" type="image/x-icon">
+  <link rel="icon" href="../../Images/offer-space-icon.ico" type="image/x-icon">
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
+
+  @Styles.Render("~/Content/LandingStyles/css")
+
+  @Scripts.Render("~/bundles/modernizr")
+  @Styles.Render("~/Content/LoginAndRegisterStyles/css")
+
+</head>
+<body class="colorlib-intro">
+<div class="col-md-3 loginRegLogo">
+  <a class="site-logo" href="/Home/Index"><img width="60%" src="../../Images/logo.png" alt="Homepage"></a>
+</div>
+<p class="regmsg">On your email address has been forwarded information on the completion of the registration</p>
+</body>
+</html>

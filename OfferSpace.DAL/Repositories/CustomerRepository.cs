@@ -4,7 +4,7 @@ using OfferSpace.BL.Interfaces;
 
 namespace OfferSpace.DAL.Repositories
 {
-    public class CustomerRepository : Repository<Customer, long>, ICustomerRepository
+    public class CustomerRepository : Repository<UserProfile, long>, ICustomerRepository
     {
         public CustomerRepository(UnitOfWork uow) : base(uow)
         {

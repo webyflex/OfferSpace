@@ -19,7 +19,7 @@ namespace OfferSpace.BL.Models
         public int? MaxPrice { get; set; }
         public string Description { get; set; }
         public long? CustomerId { get; set; }
-        public Customer Customer { get; set; }
+        public UserProfile Customer { get; set; }
         public DateTime ScheduleFrom { get; set; }
         public DateTime ScheduleTo { get; set; }
         public long? RequestCustomerId { get; set; }
