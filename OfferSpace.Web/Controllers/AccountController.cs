@@ -174,7 +174,7 @@ namespace OfferSpace.Web.Controllers
                     if (customer == null)
                     {
 
-                        return RedirectToAction("Create", "UserProfile");
+                        return RedirectToAction("UserProfile", "User");
                     }
                     return Redirect(returnUrl);
                 }

@@ -1,4 +1,8 @@
 @using Microsoft.AspNet.Identity
+@{
+  Layout = null;
+}
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -33,7 +37,7 @@
 
 </head>
 <body>
-@User.Identity.GetUserId()
+  @User.Identity.GetUserId()
   <div class="colorlib-loader"></div>
   <div id="page">
     <nav class="colorlib-nav" role="navigation">

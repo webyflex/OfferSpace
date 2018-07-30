@@ -1,4 +1,4 @@
-﻿$(document).ready(function () {
+$(document).ready(function () {
     // MagnificPopup
     var magnifPopup = function () {
         $('.image-popup').magnificPopup({
