@@ -184,11 +184,10 @@ namespace OfferSpace.Web.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Logout()
         {
-            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Login");
+          AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+          return RedirectToAction("Login");
         }
 
         protected override void Dispose(bool disposing)

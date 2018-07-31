@@ -1,6 +1,7 @@
 ﻿using OfferSpace.BL.Models;
 using OfferSpace.DAL.Core;
 using OfferSpace.BL.Interfaces;
+using System.Linq;
 
 namespace OfferSpace.DAL.Repositories
 {
@@ -8,6 +9,15 @@ namespace OfferSpace.DAL.Repositories
     {
         public CustomerRepository(UnitOfWork uow) : base(uow)
         {
+          
+        }
+
+        public UserProfile FindUserProfileById(string id)
+        {
+            OfferSpaceContext offerSpaceContext = new OfferSpaceContext();
+            UserProfile customer = offerSpaceContext.Customers.FirstOrDefault(custUser => custUser.UserId == id);
+            return customer;
+
         }
     }
 }

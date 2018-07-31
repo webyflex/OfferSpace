@@ -5,5 +5,6 @@ namespace OfferSpace.BL.Interfaces
 {
     public interface ICustomerRepository : IRepository<UserProfile, long>
     {
+         UserProfile FindUserProfileById(string id);
     }
 }

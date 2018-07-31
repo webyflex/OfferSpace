@@ -38,13 +38,19 @@
 
         <div class="header-menu-items">
           <div class="header-menu-items-btns">
-            <button class="header-menu-items-btn news">News&#32;<i class="fas fa-newspaper"></i></button>
-            <button class="header-menu-items-btn notif">Notification&#32;<i class="far fa-bell"></i></button>
-            <button class="header-menu-items-btn log">Log out&#32;<i class="fas fa-sign-out-alt"></i></button>
+            @using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm" }))
+            {
+
+              <button class="header-menu-items-btn news">News&#32;<i class="fas fa-newspaper"></i></button>
+              <button class="header-menu-items-btn notif">Notification&#32;<i class="far fa-bell"></i></button>
+              <a href="javascript:document.getElementById('logoutForm').submit()" class="header-menu-items-btn log"> Log out<i class="fas fa-sign-out-alt"></i></a>
+              <button src="javascript:document.getElementById('logoutForm').submit()" class="header-menu-items-btn log" style="visibility:hidden;">Log out&#32;</button>
+            }
           </div>
         </div>
       </div>
     </header>
+    
 
     @* USER BAR *@
     <div class="user-bar-block" background="~/Images/img_bg_4.jpg">
@@ -54,9 +60,11 @@
         </div>
         <div class="user-name" align="center">
           <span class="user-name-text">John Doe</span>
-          <span class="user-name-block-img">
-            <i class="fas fa-user-edit"></i>
-          </span>
+          <a href="@Url.Action("Edit", "UserProfile")">
+            <span class="user-name-block-img">
+              <i class="fas fa-user-edit"></i>
+            </span>
+          </a>
         </div>
       </div>
 
@@ -66,7 +74,7 @@
         </div>
       </div>
     </div>
-    
+
     @* LISTS *@
     <div class="main-frame container-custom">
       <div class="row">

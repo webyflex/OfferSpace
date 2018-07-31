@@ -2,18 +2,26 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
+import { MatCardModule } from '@angular/material';
+
 import { UserComponent } from 'src/app/components/user/user.component';
 import { UserRequestComponent } from 'src/app/components/user/request/request.component';
 import { HttpService } from 'src/app/services/http.service';
+import { UserProfileComponent } from './components/user/profile/profile.component';
 
 @NgModule({
   declarations: [
     UserComponent,
-    UserRequestComponent
+    UserRequestComponent,
+    //UserProfileComponent
   ],
   imports: [
     HttpClientModule,
-    BrowserModule
+    BrowserModule,
+    //BrowserAnimationsModule,
+    //MdCardModule,
+    //MdButtonModule,
+    //MdDialogModule
   ],
   providers: [
     HttpService,
