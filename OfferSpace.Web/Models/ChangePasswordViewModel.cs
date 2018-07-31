@@ -23,5 +23,6 @@ namespace OfferSpace.Web.Models
     [Display(Name = "Confirm New Password")]
     [Compare("NewPassword", ErrorMessage = "Passwords do not match.")]
     public string ConfirmPassword { get; set; }
+
   }
 }
