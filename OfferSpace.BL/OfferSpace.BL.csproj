@@ -71,6 +71,7 @@
     <Compile Include="Interfaces\IRequestCustomerDiscusionRepository.cs" />
     <Compile Include="Interfaces\IRequestCustomerRepository.cs" />
     <Compile Include="Interfaces\IRequestRepository.cs" />
+    <Compile Include="Interfaces\Services\IRequestService.cs" />
     <Compile Include="Models\Catalog.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Models\UserProfile.cs" />
@@ -81,10 +82,9 @@
     <Compile Include="Models\Request\RequestCustomer.cs" />
     <Compile Include="Models\Request\RequestCustomerDiscusion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\RequestService.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

@@ -5,10 +5,11 @@ import { HttpService } from 'src/app/services/http.service';
 @Component({
   selector: 'user-request',
   templateUrl: './request.component.html',
+  styleUrls: ['./request.component.css']
 })
 
 export class UserRequestComponent {
-  public items: Request[] =[];
+  public items: Request[];
 
   constructor(private service: HttpService) {
     service.get('api/userrequest').subscribe(response => {

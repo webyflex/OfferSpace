@@ -1,0 +1,60 @@
+body {
+}
+
+.loginRegLogo {
+  top: -80px !important;
+  margin: 10px;
+}
+
+.loginForm {
+  padding: 30px !important;
+  margin: 50px !important;
+  top: 100px !important;
+}
+
+h1 {
+  text-align: center;
+  color: #39b54a;
+}
+
+label {
+  color: white;
+}
+
+
+
+input[type=text]:focus {
+  background-color: #232525;
+  border-color: darkgreen;
+}
+
+input[type=password]:focus {
+  background-color: #232525;
+  border-color: darkgreen;
+}
+
+.logbtnf {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*button {
+  color: black !important;
+  background-color: darkgreen !important;
+  width: 200px;
+  font-size: 23px !important;
+  font-weight: bolder !important;
+  border-color: #232525 !important;
+  border-radius: 10px !important;
+
+}
+  button:hover {
+    background-color: #39b54a !important;
+    padding: +9px;
+  }*/
+.logingInput {
+  border-radius: 10px;
+  background: #232525 !important;
+  color: #ffffff !important;
+  font-size: 23px;
+}

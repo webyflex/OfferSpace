@@ -1,3 +1,4 @@
+@using Microsoft.AspNet.Identity
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -59,9 +60,24 @@
               </ul>
             </div>
             <div class="col-md-1 text-right menu-1">
-              <ul>
+              @if (Request.IsAuthenticated)
+              {
+                using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                {
+                  @Html.AntiForgeryToken()
+
+                  <ul>
+                    <li class="btn-cta"><a href="javascript:document.getElementById('logoutForm').submit()">Logout</a></li>
+                  </ul>
+                }
+              }
+              else
+              {
+                  <ul><li class="btn-cta"><a href="/Account/Login">Login</a></li></ul>
+              }
+              @*<ul>
                 <li class="btn-cta"><a href="/Account/Login">Login</a></li>
-              </ul>
+              </ul>*@
             </div>
           </div>
         </div>

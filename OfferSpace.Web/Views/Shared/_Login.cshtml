@@ -1,0 +1,74 @@
+@using OfferSpace.Web.Models
+@model OfferSpace.Web.Models.CompanyLoginModel
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>OfferSpace - Login</title>
+
+  <link rel="shortcut icon" href="../../Images/offer-space-icon.ico" type="image/x-icon">
+  <link rel="icon" href="../../Images/offer-space-icon.ico" type="image/x-icon">
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
+
+  @Styles.Render("~/Content/LandingStyles/css")
+
+  @Scripts.Render("~/bundles/modernizr")
+  @Styles.Render("~/Content/LoginAndRegisterStyles/css")
+  <link href="~/Content/LoginAndRegisterStyles/Login.css" rel="stylesheet">
+  <link href="~/Content/LoginAndRegisterStyles/RegisterCust.css" rel="stylesheet">
+
+</head>
+<body class="colorlib-intro" style="padding:3%;">
+  @RenderBody()
+  <div class="col-md-3 loginRegLogo" style="padding:3%;">
+    <a class="site-logo" href="/Home/Index"><img width="60%" src="../../Images/logo.png" alt="Homepage"></a>
+  </div>
+  <div class="loginForm">
+    @using (Html.BeginForm())
+    {
+      @Html.AntiForgeryToken()
+      <div class="container ">
+        <div class="form-horizontal">
+          @Html.ValidationSummary()
+          <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
+          <div class="form-group">
+            <div class="col-md-6">
+              <h1>Sign In</h1>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+              <label>Email</label><br />
+              @Html.EditorFor(x => x.Email, new { htmlAttributes = new { @class = "form-control logingInput ", @placeholder = "Enter your email", @required = "true" } })
+              @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+              <label>Password</label><br />
+              @Html.EditorFor(x => x.Password, new { htmlAttributes = new { @class = "form-control logingInput", @placeholder = "Enter your password", @required = "true" } })
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 logbtnf">
+              <button type="submit" class="btn btn-primary btn-outline btn-md">Sign In</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    }
+  </div>
+  @Scripts.Render("~/bundles/LandingScripts/js")
+</body>
+</html>
+
+

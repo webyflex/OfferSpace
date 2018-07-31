@@ -19,7 +19,7 @@ namespace OfferSpace.Web.Controllers
         }
         public ActionResult Index()
         {
-            LaunchRole launchRole = new LaunchRole();
+            //LaunchRole launchRole = new LaunchRole();
             //locationRepository.Create(new Location { Name = "chernivtsi" });
             //locationRepository.Create(new Location { Name = "chernivtsi", ParentId = 1 });
             //locationRepository.Create(new Location { Name = "kyiv" });
