@@ -390,6 +390,7 @@
     <Content Include="Scripts\LandingScripts\query.magnific-popup.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\UserProfilePage\user-profile-page.js" />
+    <Content Include="src\app\components\user\profile\profile.component.html" />
     <Content Include="src\app\components\user\request\request.component.html" />
     <Content Include="src\app\components\user\user.component.html" />
     <Content Include="src\favicon.ico" />
@@ -459,6 +460,7 @@
     <TypeScriptCompile Include="e2e\src\app.e2e-spec.ts" />
     <TypeScriptCompile Include="e2e\src\app.po.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />
+    <TypeScriptCompile Include="src\app\components\user\profile\profile.component.ts" />
     <TypeScriptCompile Include="src\app\components\user\request\request.component.ts" />
     <TypeScriptCompile Include="src\app\components\user\user.component.ts" />
     <TypeScriptCompile Include="src\app\models\request.model.ts" />

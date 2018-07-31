@@ -1,17 +1,67 @@
-@section scripts {
+@*<div class="row">
+    <div class="col-md-12">
+      <app-user></app-user>
+      <app-user></app-user>
+    </div>
+  </div>*@
+
+@*<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta charset="utf-8" />
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> ViewBag.Title – приложение ASP.NET</title>
   <script type="text/javascript" src="~/Scripts/libs/runtime.js"></script>
   <script type="text/javascript" src="~/Scripts/libs/polyfills.js"></script>
   <script type="text/javascript" src="~/Scripts/libs/styles.js"></script>
   <script type="text/javascript" src="~/Scripts/libs/vendor.js"></script>
   <script type="text/javascript" src="~/Scripts/libs/main.js"></script>
-}
 
 
 
 
-<div class="row">
-  <div class="col-md-12">
-    <app-user></app-user>
-    <app-user></app-user>
-  </div>
-</div>
+</head>
+<body>
+  <app-user>loading...</app-user>
+
+</body>
+</html>*@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta charset="utf-8" />
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ViewBag.Title</title>
+  @Styles.Render("~/Content/css")
+  @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+  @{
+    ViewBag.Title = "User Page";
+  }
+
+    <script type="text/javascript" src="~/Scripts/libs/runtime.js"></script>
+    <script type="text/javascript" src="~/Scripts/libs/polyfills.js"></script>
+    <script type="text/javascript" src="~/Scripts/libs/styles.js"></script>
+    <script type="text/javascript" src="~/Scripts/libs/vendor.js"></script>
+    <script type="text/javascript" src="~/Scripts/libs/main.js"></script>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Angular App</h2>
+        <app-user></app-user>
+      </div>
+    </div>
+    <hr />
+
+  @Scripts.Render("~/bundles/jquery")
+  @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>
