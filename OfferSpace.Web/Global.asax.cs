@@ -44,6 +44,7 @@ namespace OfferSpace.Web
             ninjectKernel.Bind<IRequestRepository>().To<RequestRepository>();
             ninjectKernel.Bind<IRequestCustomerRepository>().To<RequestCustomerRepository>();
             ninjectKernel.Bind<IRequestCustomerDiscusionRepository>().To<RequestCustomerDiscusionRepository>();
+
         }
     }
 }

@@ -1,17 +1,20 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.Owin.Security;
-using System.Security.Claims;
 using OfferSpace.Web.Models;
-using Microsoft.Owin.Host.SystemWeb;
 using OfferSpace.BL.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using OfferSpace.BL.Interfaces;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+using System;
+using System.Text;
 
 namespace OfferSpace.Web.Controllers
 {
@@ -175,6 +178,7 @@ namespace OfferSpace.Web.Controllers
                     {
                         return RedirectToAction("Create", "UserProfile");
                     }
+                    //await Token(model);
                     return Redirect(returnUrl);
                 }
                 else
@@ -187,6 +191,34 @@ namespace OfferSpace.Web.Controllers
                 ModelState.AddModelError("", "Неверный логин или пароль");
             }
             return View(model);
+        }
+
+        //[HttpPost]
+        public /*async Task*/string Token(/*CompanyLoginModel loginViewModel*/)
+        {
+          //ClaimsIdentity identity = GetIdentity(loginViewModel.Email, loginViewModel.Password);
+          ClaimsIdentity identity = GetIdentity(UserManager.FindById(User.Identity.GetUserId()));
+          if (identity == null)
+          {
+            //Response.StatusCode = 400;
+            //Response.Write("Invalid username or password.");
+            return "invalid";
+            //return;
+          }
+
+          var encodedJwt = new JwtSecurityTokenHandler().WriteToken(CreateToken(identity));
+
+          var response = new
+          {
+            access_token = encodedJwt,
+            //expires = AuthOptions.LIFETIME,
+            //status = StatusCode(200).StatusCode
+          };
+
+          //Response.ContentType = "application/json";
+          //Response.Write(JsonConvert.SerializeObject(response, new JsonSerializerSettings { Formatting = Formatting.Indented }));
+          string token = response.access_token;
+          return token;
         }
 
         [HttpPost]
@@ -225,13 +257,54 @@ namespace OfferSpace.Web.Controllers
             }
         }
 
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public ActionResult ExternalLogin(string provider, string returnUrl)
+
+
+    public ClaimsIdentity GetIdentity(/*string email, string password*/User user)
+    {
+      //var user = UserManager.FindAsync(email, password);
+
+      if (user != null)
+      {
+        var claims = new List<Claim>
         {
-          // Запрос перенаправления к внешнему поставщику входа
-          return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
-        }
+        };
+
+        ClaimsIdentity claimsIdentity =
+        new ClaimsIdentity(
+            claims: claims,
+            authenticationType: "Token",
+            nameType: ClaimsIdentity.DefaultNameClaimType,
+            roleType: ClaimsIdentity.DefaultRoleClaimType
+            );
+
+        return claimsIdentity;
+      }
+      return null;
     }
+    public JwtSecurityToken CreateToken(ClaimsIdentity identity)
+    {
+      var now = DateTime.Now;
+      JwtSecurityToken jwt = new JwtSecurityToken(
+              issuer: AuthOptions.ISSUER,
+              audience: AuthOptions.AUDIENCE,
+              notBefore: now,
+              claims: identity.Claims,
+              expires: now.Add(TimeSpan.FromSeconds(AuthOptions.LIFETIME)),
+              signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(),
+              SecurityAlgorithms.HmacSha256));
+      return jwt;
+    }
+
+    public class AuthOptions
+    {
+      public const string ISSUER = "MyAuthServer";
+      public const string AUDIENCE = "http://localhost:49971/";
+      const string KEY = "scrummakerscrummakerscrummaker";
+      public const int LIFETIME = 1800;
+      public static SymmetricSecurityKey GetSymmetricSecurityKey()
+      {
+        return new SymmetricSecurityKey(Encoding.ASCII.GetBytes(KEY));
+      }
+    }
+  }
 }

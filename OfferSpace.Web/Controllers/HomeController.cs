@@ -4,6 +4,8 @@ using OfferSpace.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -19,7 +21,8 @@ namespace OfferSpace.Web.Controllers
         }
         public ActionResult Index()
         {
-            LaunchRole launchRole = new LaunchRole();
+            //string token = HttpContext.Session.SessionID;
+            //LaunchRole launchRole = new LaunchRole();
             //locationRepository.Create(new Location { Name = "chernivtsi" });
             //locationRepository.Create(new Location { Name = "chernivtsi", ParentId = 1 });
             //locationRepository.Create(new Location { Name = "kyiv" });
