@@ -161,7 +161,7 @@ namespace OfferSpace.Web.Controllers
     [ValidateAntiForgeryToken]
     public async Task<ActionResult> Login(CompanyLoginModel model, string returnUrlSite)
     {
-      string returnUrl = "/Home/Index";
+      string returnUrl = "/User/UserProfile";
       if (returnUrlSite != null)
       {
         returnUrl = returnUrlSite;

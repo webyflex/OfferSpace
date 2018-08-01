@@ -21,7 +21,7 @@ namespace OfferSpace.BL.Services
 
         public List<Request> GetUserRequests(string id)
         {
-            var customer = _customerRepository.GerUserProfileByUserId(id);
+            var customer = _customerRepository.GetUserProfileByUserId(id);
             var requests = _requestRepository.GetRequestByUserProfileId(customer);
             return requests;
         }

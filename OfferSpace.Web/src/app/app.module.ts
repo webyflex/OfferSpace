@@ -4,8 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { UserComponent } from 'src/app/components/user/user.component';
 import { UserRequestComponent } from 'src/app/components/user/request/request.component';
-import { HttpService } from 'src/app/services/http.service';
 import { TokenComponent } from 'src/app/components/token.component';
+import { HttpService } from 'src/app/services/http.service';
 
 @NgModule({
   declarations: [

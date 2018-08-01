@@ -66,7 +66,7 @@ namespace OfferSpace.Web.Controllers
         {
           _companyRepository.Create(new Company() { Name = userProfile.CompanyName, Image = userProfile.CompanyImage });
           _companyRepository.SaveChanges();
-          return RedirectToAction("Index", "Home");
+          return RedirectToAction("UserProfile", "User");
         }
       }
       return View(userProfile);

@@ -226,7 +226,6 @@
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="Controllers\UserGetManager.cs" />
     <Compile Include="Controllers\UserProfileController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -235,6 +234,7 @@
     <Compile Include="Models\ApplicationUserManager.cs" />
     <Compile Include="Models\CompanyLoginModel.cs" />
     <Compile Include="Models\ConfirmCompanyRegistrationModel.cs" />
+    <Compile Include="Models\EditProfileModel.cs" />
     <Compile Include="Models\ExternalLoginListViewModel.cs" />
     <Compile Include="Models\LaunchRole.cs" />
     <Compile Include="Models\RegisterModel.cs" />
@@ -261,9 +261,12 @@
     <Content Include="Content\LandingStyles\owl.carousel.min.css" />
     <Content Include="Content\LandingStyles\owl.theme.default.min.css" />
     <Content Include="Content\LandingStyles\style.css" />
+    <Content Include="Content\userProfileStyles.css" />
     <Content Include="Content\LoginAndRegisterStyles\Login.css" />
     <Content Include="Content\LoginAndRegisterStyles\RegisterCust.css" />
     <Content Include="Content\stepper.css" />
+    <Content Include="Content\UserProfilePage\bootstrap.min.css" />
+    <Content Include="Content\UserProfilePage\user-profile-page.css" />
     <Content Include="e2e\protractor.conf.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -289,6 +292,10 @@
     <Content Include="Images\person2.jpg" />
     <Content Include="Images\person3.jpg" />
     <Content Include="Images\person4.jpg" />
+    <Content Include="Images\picture.png" />
+    <Content Include="Images\StepperIMG\default-avatar.png" />
+    <Content Include="Images\StepperIMG\default-logo.png" />
+    <Content Include="Images\StepperIMG\wizard-profile.jpg" />
     <Content Include="Images\work-1.jpg" />
     <Content Include="Images\work-2.jpg" />
     <Content Include="Images\work-3.jpg" />
@@ -343,10 +350,20 @@
     <Content Include="Scripts\LandingScripts\main.js" />
     <Content Include="Scripts\LandingScripts\owl.carousel.min.js" />
     <Content Include="Scripts\LandingScripts\query.magnific-popup.min.js" />
+    <Content Include="Scripts\libs\3rdpartylicenses.txt" />
+    <Content Include="Scripts\libs\favicon.ico" />
+    <Content Include="Scripts\libs\index.html" />
+    <Content Include="Scripts\libs\main.js" />
+    <Content Include="Scripts\libs\polyfills.js" />
+    <Content Include="Scripts\libs\runtime.js" />
+    <Content Include="Scripts\libs\styles.js" />
+    <Content Include="Scripts\libs\vendor.js" />
+    <Content Include="Scripts\modernizr-2.6.2.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\UserProfilePage\user-profile-page.js" />
-    <Content Include="src\app\components\user\request\request.component.css" />
+    <Content Include="Scripts\userProfileScript.js" />
     <Content Include="src\app\components\user\request\request.component.html" />
+    <Content Include="src\app\components\user\user.component.css" />
     <Content Include="src\app\components\user\user.component.html" />
     <Content Include="src\favicon.ico" />
     <Content Include="src\index.html" />
@@ -389,8 +406,18 @@
     <Content Include="Views\Shared\_DisplayEmail.cshtml" />
     <Content Include="Views\Shared\_Login.cshtml" />
     <Content Include="Views\Shared\_UserCreate.cshtml" />
+    <Content Include="Scripts\libs\main.js.map" />
+    <Content Include="Scripts\libs\polyfills.js.map" />
+    <Content Include="Scripts\libs\runtime.js.map" />
+    <Content Include="Scripts\libs\styles.js.map" />
+    <Content Include="Scripts\libs\vendor.js.map" />
+    <Content Include="Views\Shared\_UserRequests.cshtml" />
+    <Content Include="src\app\components\user\request\request.component.css" />
+    <Content Include="Views\User\UserProfile.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Images\UserProfile\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

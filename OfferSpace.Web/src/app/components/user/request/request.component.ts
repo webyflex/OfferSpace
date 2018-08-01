@@ -5,7 +5,7 @@ import { HttpService } from 'src/app/services/http.service';
 @Component({
   selector: 'user-request',
   templateUrl: './request.component.html',
-  styleUrls: ['./request.component.css']
+  styleUrls:['./request.component.css']
 })
 
 export class UserRequestComponent {
